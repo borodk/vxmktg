@@ -1,0 +1,130 @@
+<!-- get the modal -->
+<script src="/cms/dam/jquery.min.js"></script>
+<script src="/cms/dam/modaljs.js"></script>
+<link rel="stylesheet" type="text/css" href="/cms/dam/modalcss.css" />
+<script type="text/javascript">
+
+//form validation and submission
+function validateForm() {
+    //Validate Email Address
+    var x=document.forms["VISA_CC_FORM"]["EMAIL_ADDRESS_"].value;
+    var atpos=x.indexOf("@");
+    var dotpos=x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+          alertModal('Oops. We need a little more info.', 'Please enter a valid email address.');
+          return false;
+    }
+}
+</script>
+
+<style type="text/css">
+    button {
+        color: #FFFFFF;
+        background-color: #7b4397;
+        font-family:"Gotham SSm 4r","Gotham SSm A","Gotham SSm B",Arial,sans-serif;
+        font-weight: 700;
+        font-size: .8em;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-appearance: button;
+        box-sizing: border-box;
+        height:36px;
+        width:100%;
+        vertical-align: top;
+        outline: none;
+        border:0px;
+    }
+    button:hover {
+        background-color: #9d27d9;
+        -webkit-transition: background-color 500ms ease-in-out;
+        -moz-transition: background-color 500ms ease-in-out;
+        -o-transition: background-color 500ms ease-in-out;
+        transition: background-color 500ms ease-in-out;
+    }
+    input[type="text"] {
+        font-family: Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        font-size: 1.4rem;
+        height: 36px;
+        padding: 0 12px;
+        color:#666666;
+        width:100%;
+        border: 1px solid #ccc;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+    }
+    .formRow {
+        width:100%;
+        clear:both;
+    }
+    .formRow .label {
+        color:#000;
+    }
+    #ccForm h3 {
+        color: #e44384;
+        text-align: left;
+        font-weight: 100;
+    }
+    #submitButton {
+        display: block;
+        margin: 0 auto;
+        margin-bottom:20px
+    }
+    #emailField {
+        margin-top:20px;
+    }
+    .promobox a {
+        color: #000;
+        text-decoration: underline;
+        border: none !important;
+        background: none;
+        display: inline;
+        margin: 0;
+        text-transform: none;
+        font-weight: normal;
+        padding: 0;
+    }
+    .promobox a:hover {
+        background: none;
+    }
+    @media only screen and (max-width: 640px) {
+        input[type="text"] {
+            width:100%;
+        }
+    }
+    @media (max-width: 551px){
+        .promobox {
+            margin-top:-40px !important;
+        }
+        #emailField,
+        #submitButton {
+            width: 180px;
+        }
+    }
+</style>
+
+<div class="promobox">
+    <div class="centered">
+    <form name="VISA_CC_FORM" action="https://elevate.virginamerica.com/pub/rf" method="post" id ="ccForm">
+    <input type="hidden" name="_ri_" value="X0Gzc2X%3DYQpglLjHJlYQGrpFn72gzdspdRRpUwzbCqNhPzbiwdOPvzgPeTCVwjpnpgHlpgneHmgJoXX0Gzc2X%3DYQpglLjHJlYQGizg8dycIt1feLRzf7zby0whzdwzbiwdOPvzgPeTC">
+    <div class="formRow">
+    <div>
+        <img src="/cms/dam/HOME-PAGE-ICONS-272x216/microsites/credit-card/mini-silver-card-e.png"/>
+        <h3>Nice Choice</h3>
+        <p>
+            You've selected the <strong>Virgin America Premium Visa Signature® Card</strong>. Just enter the email address that's registered to your Elevate account.
+        </p>
+        <p>
+        <label>Email</label>
+        <input id="emailField" type="text" name="EMAIL_ADDRESS_" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}" /></p>
+        <p>Not an elevate member? <a href="https://www.virginamerica.com/elevate-frequent-flyer/sign-up" target="_blank">Join now</a></p>
+    </div>
+</div>
+<button id="submitButton" onClick="return validateForm();">Submit</button>
+</form>
+</div>
+</div>

@@ -1,0 +1,716 @@
+
+<link rel="stylesheet" type="text/css" href="/cms/dam/modalcss.css" />
+<link rel="stylesheet" type="text/css" href="/cms/dam/utils/css/vaForms.css" />
+<style type="text/css">
+    button {
+        color: #FFFFFF;
+        background-color: #7b4397;
+        font-family:"Gotham SSm 4r","Gotham SSm A","Gotham SSm B",Arial,sans-serif;
+        font-weight: 700;
+        font-size: .8em;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-appearance: button;
+        box-sizing: border-box;
+        height:36px;
+        width:100%;
+        vertical-align: top;
+        outline: none;
+        border:0px;
+    }
+    button:hover {
+        background-color: #9d27d9;
+        -webkit-transition: background-color 500ms ease-in-out;
+        -moz-transition: background-color 500ms ease-in-out;
+        -o-transition: background-color 500ms ease-in-out;
+        transition: background-color 500ms ease-in-out;
+    }
+    form label {
+            display: block;
+            font-family: 'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            font-size: 12px;
+            font-size: 1.2rem;
+            line-height: 21px;
+    }
+    input[type="text"] {
+        font-family: Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        font-size: 1.4rem;
+        height: 36px;
+        padding: 0 12px;
+        color:#666666;
+        width:100%;
+        border: 1px solid #ccc;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+    }
+    input[type="checkbox"]{
+        margin-right: 10px;
+    }
+    select {
+        width:100%;
+        height:36px;
+        /*background-color: #ebebeb;*/
+        font-family:Arial, sans-serif;
+        font-size:1.4rem;
+        border: 1px solid #ccc;
+         appearance:none;
+         -webkit-appearance: none;
+         -moz-appearance: none;
+        border-radius:0 !important;
+        -webkit-border-radius:0 !important;
+        -moz-border-radius:0 !important;
+        padding-left: 12px;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+        /*vertical-align: middle !important;*/
+        /*padding:.5em;/.6em;*/
+    }
+    .formRow {
+        width:100%;
+    }
+    .left {
+        width:47%;
+        float:left;
+    }
+    .right {
+        width:47%;
+        float:right;
+    }
+    #AnnualCompanySpendOnAirTravel,
+    #TravelManagementCompany,
+    #GDSUsed,
+    #BookingToolUsed
+     {
+        width:380px;
+    }
+    select {
+        width:100%;
+        height:36px;
+        /*background-color: #ebebeb;*/
+        font-family:Arial, sans-serif;
+        font-size:1.4rem;
+        border: 1px solid #ccc;
+         appearance:none;
+         -webkit-appearance: none;
+         -moz-appearance: none;
+        border-radius:0 !important;
+        -webkit-border-radius:0 !important;
+        -moz-border-radius:0 !important;
+        padding-left: 12px;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+        /*vertical-align: middle !important;*/
+        /*padding:.5em;/.6em;*/
+    }
+
+    @media only screen and (max-width: 870px) {
+        #AnnualCompanySpendOnAirTravel,
+        #TravelManagementCompany,
+        #GDSUsed,
+        #BookingToolUsed {
+            width:320px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .left {
+            width:100%;
+            float:none;
+        }
+        .right {
+            width:100%;
+            float:none;
+        }
+        input[type="text"] {
+            width:100%;
+        }
+        #AnnualCompanySpendOnAirTravel,
+        #TravelManagementCompany,
+        #GDSUsed,
+        #BookingToolUsed {
+            width:450px;
+        }
+    }
+    @media only screen and (max-width: 450px) {
+        #AnnualCompanySpendOnAirTravel,
+        #TravelManagementCompany,
+        #GDSUsed,
+        #BookingToolUsed {
+            width:350px;
+        }
+    }
+    /*@media only screen and (max-width: 360px) {
+        #dropdownSelect {
+            width:300px;
+        }
+    }*/
+</style>
+
+<form name="ELINCREG_FORM" action="https://elevate.virginamerica.com/pub/rf" method="post" class="ng-pristine ng-valid vaForms" novalidate>
+
+    <input type="hidden" name="_ri_" value="X0Gzc2X%3DWQpglLjHJlYQGNlzfNJKOUmze7zdXY8RTJbpzgzbDpCzc7nnVwjpnpgHlpgneHmgJoXX0Gzc2X%3DWQpglLjHJlYQGNnGXH717t7pLzerRp6mN7qFIonjBDR">
+    
+<h2 class="subheading">Elevate Inc. Corporate Rewards</h2>
+
+<div class"formRow">
+    <div class="left">
+        <p>
+            <label>
+            Company Name*
+            </label>
+            <input id="firstNameField" type="text" name="ELINCREG_COMPANY_NAME" class="formField" required="true" data-message="Please enter your company name.">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="right">
+        <p>
+        <label>
+            Annual Company Spend on Air Travel
+        </label>
+        <select id="AnnualCompanySpendOnAirTravel" name="ELINCREG_ANNUAL_CO_SPEND_ON_TRAVEL" rel="sBox4" class="select hasCustomSelect" style="-webkit-appearance: menulist-button; position: absolute; opacity: 0;" onchange="changeDropdownDisplay();">
+            <option value="LESSTHAN1M">Less than $1 million</option>
+            <option value="1TO5M">$1-5 million</option>
+            <option value="6TO10M">$6-10 million</option>
+            <option value="MORETHAN10M">More than $10 million</option>
+        </select>
+        <span class="custom-select select" style="display: inline-block;">
+            <span class="custom-selectInner" id="sBox4" style="width: 100%; display: inline-block;">- Please Select -</span>
+        </span>
+        </p>
+    </div>
+</div>
+<div class="formRow">
+    <div class="left">
+        <p>
+            <label>
+            Business Owner First Name*
+            </label>
+            <input id="BusinessOwnerFirstName" type="text" name="ELINCREG_BIZ_OWNER_FIRST_NAME" class="formField"  required="true" data-message="Please enter business owner first name">
+        </p>
+    </div>
+    <div class="right">
+        <p>
+            <label>
+            Business Owner Last Name*
+            </label>
+            <input id="BusinessOwnerLastName" type="text" name="ELINCREG_BIZ_OWNER_LAST_NAME" class="formField"  required="true" data-message="Please enter business owner last name">
+        </p>
+    </div>
+</div>
+<div class="formRow">
+    <div class="left">
+        <p>
+            <label>
+            Business Owner Email Address*
+            </label>
+            <input id="BusinessOwnerEmailAddress" type="email" name="EMAIL_ADDRESS_" class="formField"  required="true" data-message="Please enter a valid email address.">
+        </p>
+    </div>
+    <div class="right">
+        <p>
+            <label>
+            Business Owner Elevate Number
+            </label>
+            <input id="elevateNumberField" type="number" maxlength="11" name="ELINCREG_BIZ_OWNER_ELEVATE_NUM" class="formField"  required="false" data-message="Please enter a valid 11-digit Elevate number.">
+        </p>
+    </div>
+</div>
+<div class="formRow">
+    <div class="left">
+        <p>
+            <label>
+            Business Owner Phone Number
+            </label>
+            <input id="BusinessOwnerPhoneNumber" type="email" name="ELINCREG_BIZ_OWNER_PHONE_NUM" class="formField"  required="false" data-message="Please enter a valid phone number.">
+        </p>
+    </div>
+    <div class="right">
+       
+        <p>
+            <label>
+                Not yet a member? <a href="https://www.virginamerica.com/elevate-frequent-flyer/sign-up" target="_blank">JOIN NOW</a>
+            </label>
+        </p>
+    </div>
+</div>
+<div class="formRow">
+    <div class="left">
+        <p>
+            <label>
+            Company Travel Contact First Name*
+            </label>
+            <input id="BusinessOwnerFirstName" type="text" name="ELINCREG_CO_TRAVEL_CONTACT_FIR" class="formField"  required="true" data-message="Please enter your company travel contact first name.">
+        </p>
+    </div>
+    <div class="right">
+        <p>
+            <label>
+            Company Travel Contact Last Name*
+            </label>
+            <input id="CompanyTravelContactLastName" type="text" name="ELINCREG_CO_TRAVEL_CONTACT_LAS" class="formField"  required="true" data-message="Please enter your company travel contact last name.">
+        </p>
+    </div>
+</div>
+<div class="formRow">
+    <div class="left">
+        <p>
+            <label>
+            Company Address*
+            </label>
+            <input id="CompanyAddress" type="text" name="ELINCREG_CO_ADDRESS" class="formField"  required="true" data-message="Please enter your company address.">
+        </p>
+    </div>
+    <div class="right">
+        <p>
+            <label>
+            Company Phone Number*
+            </label>
+            <input id="phoneNumberField" type="tel" name="ELINCREG_PHONE_NUMBER" class="formField"  required="true" data-message="Please enter a phone number with area code.">
+        </p>
+    </div>
+</div>
+<div class="formRow">
+    <div class="left">
+        <p>
+            <label>
+            Company Email Address
+            </label>
+            <input id="CompanyAddress" type="text" name="ELINCREG_CO_EMAIL_ADDRESS" class="formField"  required="false" data-message="Please enter your company email address.">
+        </p>
+    </div>
+    <div class="right">
+
+    </div>
+</div>
+<div class="formRow">
+    <div class="left">
+        <p>
+        <label>
+            Travel Management Company
+        </label>
+        <select id="TravelManagementCompany" name="ELINCREG_TRAVEL_MGMT_CO_USED" rel="sBox1" class="select hasCustomSelect" style="-webkit-appearance: menulist-button; position: absolute; opacity: 0;" onchange="changeDropdownDisplay_b();">
+            <option value="YES">Yes</option>
+            <option value="NO">No</option>
+        </select>
+        <span class="custom-select select" style="display: inline-block;">
+            <span class="custom-selectInner" id="sBox1" style="width: 100%; display: inline-block;">- Please Select -</span>
+        </span>
+        </p>
+    </div>
+    <div class="right">
+        <p>
+            <label>
+             If so which one(s)?
+            </label>
+            <input id="IfSoWhichOne" type="text" name="ELINCREG_WHICH_TRAVEL_MGMT_CO" class="formField" >
+        </p>
+    </div>
+</div>
+<div class="formRow">
+    <div class="left">
+        <p>
+        <label>
+            GDS used, if applicable
+        </label>
+        <select id="GDSUsed" name="ELINCREG_GDS_USED" rel="sBox2" class="select hasCustomSelect" style="-webkit-appearance: menulist-button; position: absolute; opacity: 0;" onchange="changeDropdownDisplay_c();">
+            <option value="SABRE">Sabre</option>
+            <option value="APOLLO">Apollo</option>
+            <option value="AMADEUS">Amadeus</option>
+            <option value="WORLDSPAN">Worldspan</option>
+            <option value="GALILEO">Galileo</option>
+        </select>
+        <span class="custom-select select" style="display: inline-block;">
+            <span class="custom-selectInner" id="sBox2" style="width: 100%; display: inline-block;">- Please Select -</span>
+        </span>
+        </p>
+    </div>
+    <div class="right">
+        <p>
+        <label>
+            Booking Tool used, if applicable
+        </label>
+        <select id="BookingToolUsed" name="ELINCREG_BOOKING_TOOL_USED" rel="sBox3" class="select hasCustomSelect" style="-webkit-appearance: menulist-button; position: absolute; opacity: 0;" onchange="changeDropdownDisplay_d();">
+            <option value="CONCUR">Concur</option>
+            <option value="GETTHERE">GetThere</option>
+        </select>
+        <span class="custom-select select" style="display: inline-block;">
+            <span class="custom-selectInner" id="sBox3" style="width: 100%; display: inline-block;">- Please Select -</span>
+        </span>
+        </p>
+    </div>
+</div>
+<div class="formRow">
+    <div class="left">
+        <p>
+            <label>
+            Dedicated ARC Number(s), if available
+            </label>
+            <input id="CompanyAddress" type="text" name="ELINCREG_ARC_NUMBER" class="formField" >
+        </p>
+    </div>
+    <div class="right">
+
+    </div>
+</div>
+
+<button id="submitButton">Submit</button>
+
+</div>
+
+</form>
+
+<script type="text/javascript">
+
+var validator = {
+
+    mainMessage:'Oops. We need a little more info.',
+
+    inputFields:[],
+    
+    validate: function(cname , message){
+
+        if (cname == null || cname == "") {
+            alertModal(this.mainMessage, message);
+            return false;
+        }
+
+    },
+
+    // set listens for input fields in each form
+    initListeners: function(){
+
+        var self = this;
+        var forms = document.forms;
+
+        for(var i = 0; i < forms.length;i++){
+
+            var fields = forms[i].getElementsByTagName("input"),
+                name = document.forms[0].name;
+
+            forms[i].addEventListener('submit',function(e){
+                self.checkAllFields(e);
+            });
+
+            for(var i = 0; i < fields.length;i++){
+                if(fields[i].required === true){
+                    
+                    var message = fields[i].dataset.message,
+                        value = fields[i].value;
+
+                        this.inputFields.push(fields[i]); // track each required input field
+
+                    (function(){
+
+                        fields[i].addEventListener('keydown',function(e){
+
+                            var key = e.which || e.keyCode;
+
+                            if(event.keyCode == 13){
+
+                                self.validateInput(this);                
+                            }
+
+                        });
+
+                    })();
+
+                }
+            }
+
+        }
+        
+    },
+
+    validateInput:function(element){
+
+        var inputType = element.type;
+        return this[inputType + 'Validate'](element);
+
+    },
+
+    checkAllFields:function(e){
+
+        e.preventDefault();
+
+        for(var i = 0;i < this.inputFields.length;i++){
+
+        
+
+            var isValid = this.validateInput(this.inputFields[i]);
+
+        
+
+            if(!isValid){
+                alertModal(this.mainMessage, this.inputFields[i].dataset.message);
+
+                this.inputFields[i].value = '';
+            
+                return false;
+            }
+
+        }
+
+
+        /* RUN the legacy code thats sets the cookie and checks non required fields */
+        if(validateForm()){
+            /* submit the forms if all filled*/
+            document.forms[0].submit();
+        }
+    },
+
+
+    textValidate:function(element){
+
+        var value = element.value;
+        if (value == null || value == "") {
+            alertModal(this.mainMessage, element.dataset.message);
+            return false;
+        }
+
+        return true;
+
+    },
+
+    emailValidate:function(element){
+
+        //Validate Email Address
+        var x = element.value;
+        var atpos = x.indexOf("@");
+        var dotpos = x.lastIndexOf(".");
+        if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+            alertModal(this.mainMessage, element.dataset.message);
+            element.value = '';  // clear the non valid input
+            return false;
+        }
+
+        return true;
+
+    },
+
+    numberValidate:function(element){
+
+    //Elevate Number  ALERT MODAL MESSAGE WAS
+    //Oops. We need a little more info., Please enter a valid 11-digit Elevate number.
+    var CUSTOMER_ID_ = element.value;
+    var initialElevateNumberCheck = /^[0-9]{11}$/;
+    var elevateNumberDigits = new Array();
+
+    /* IF THE USER LEFT THIS AS BLANK */
+    if(!element.value){
+
+        alertModal(this.mainMessage, element.dataset.message);
+        element.value = '';
+        return false;
+    }
+
+
+    try{
+
+
+
+    if (CUSTOMER_ID_.match(initialElevateNumberCheck)) {
+
+        var elevateNumberDigits = CUSTOMER_ID_.split(''),
+            d1 = elevateNumberDigits[0]*6,
+            d2 = elevateNumberDigits[1]*5,
+            d3 = elevateNumberDigits[2]*4,
+            d4 = elevateNumberDigits[3]*3,
+            d5 = elevateNumberDigits[4]*8,
+            d6 = elevateNumberDigits[5]*7,
+            d7 = elevateNumberDigits[6]*6,
+            d8 = elevateNumberDigits[7]*5,
+            d9 = elevateNumberDigits[8]*4,
+            d10 = elevateNumberDigits[9]*3,
+
+            dTotal = d1+d2+d3+d4+d5+d6+d7+d8+d9+d10,
+            dTotalDivided = Math.floor(dTotal/11),
+            secondNumber = dTotalDivided * 11,
+            remainder = dTotal - secondNumber;
+
+          /*TODO REFACTOR:*/
+            if (remainder >=2){
+
+                if(elevateNumberDigits[10] == 11-remainder){
+                    //alert("works!");
+                } else {
+                            element.value = '';
+
+                    alertModal(this.mainMessage, element.dataset.message);
+                    return false;
+                }
+
+            } else {
+            
+                if(elevateNumberDigits[10] == 0){
+            
+                } else {
+                    element.value = '';
+
+                    alertModal(this.mainMessage, element.dataset.message);
+                        return false;
+                    }
+                }       
+
+            } else if (CUSTOMER_ID_ !== '') {
+                        element.value = '';
+
+                alertModal(this.mainMessage, element.dataset.message);
+                return false;
+            }
+
+    }catch(err){
+                    element.value = '';
+
+        alertModal(this.mainMessage, element.dataset.message);
+        return false;
+
+    }
+
+        return true;
+
+
+    },
+
+    telValidate:function(element){
+
+        //Validate Company Travel Phone Number
+        var phoneNumber = element.value;
+        
+        phoneNumber = phoneNumber.replace(/[^0-9]/g, '');
+
+        if(phoneNumber.length < 10) {
+            alertModal(this.mainMessage, element.dataset.message);
+            element.value = '';  // clear the non valid input
+            return false;
+        }
+
+        return true;
+
+    }
+
+
+
+};
+
+
+
+
+validator.initListeners();
+
+
+
+
+
+
+//all the cookie functionality
+function getCookie (name) {
+    var dcookie = document.cookie; 
+    var cname = name + "=";
+    var clen = dcookie.length;
+    var cbegin = 0;
+            while (cbegin < clen) {
+            var vbegin = cbegin + cname.length;
+                    if (dcookie.substring(cbegin, vbegin) == cname) { 
+                    var vend = dcookie.indexOf (";", vbegin);
+                            if (vend == -1) vend = clen;
+                    return unescape(dcookie.substring(vbegin, vend));
+                    }
+            cbegin = dcookie.indexOf(" ", cbegin) + 1;
+                    if (cbegin == 0) break;
+            }
+    return null;
+}
+function setRegCookie(c_name,value,exdays)
+{
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+}
+function checkForRegCookie() {
+    regCheck = getCookie('elevate-inc-register-cookie');
+    if (regCheck !== null && regCheck !== "") {
+        window.location = "/cms/promos/elevate-inc-register-form-thank-you";
+    } else {
+        return false;
+    }
+}
+
+
+
+//form validation and then cookie creation and submission all in the one function, triggered by the submit button
+function validateForm() {
+
+    
+    //Validate Travel Management Company Used
+    var tmgmtcoused = document.forms["ELINCREG_FORM"]["ELINCREG_TRAVEL_MGMT_CO_USED"].value;
+    if (tmgmtcoused == "none" || tmgmtcoused == "") {
+        alertModal('Oops. We need a little more info.', 'Please select the travel management company used.');
+          return false;
+    }
+    
+    //Validate Which Travel Management Company Used
+    var wtmgmtcoused = document.forms["ELINCREG_FORM"]["ELINCREG_WHICH_TRAVEL_MGMT_CO"].value;
+
+    
+    //Validate Which GDS Used
+    var gdsused = document.forms["ELINCREG_FORM"]["ELINCREG_GDS_USED"].value;
+    if (gdsused == "none" || gdsused == "") {
+        alertModal('Oops. We need a little more info.', 'Please select which gds used.');
+          return false;
+    }
+    
+    //Validate Which GDS Used
+    var booktoolused = document.forms["ELINCREG_FORM"]["ELINCREG_BOOKING_TOOL_USED"].value;
+    if (booktoolused == "none" || booktoolused == "") {
+        alertModal('Oops. We need a little more info.', 'Please select which booking tool used.');
+          return false;
+    }
+    
+    //Validate ARC Number
+    var arcnumber = document.forms["ELINCREG_FORM"]["ELINCREG_ARC_NUMBER"].value;
+
+    
+    //Validate ARC Number
+    var snpcodes = document.forms["ELINCREG_FORM"]["ELINCREG_SNAP_CODES"].value;
+
+    
+    setRegCookie('elevate-inc-register-cookie','registered',365);
+
+    return true;
+
+}
+
+function changeDropdownDisplay() {
+        var dropdownSelected = $('#AnnualCompanySpendOnAirTravel option:selected').text();
+        $('#sBox4').text(dropdownSelected);
+    }
+    function changeDropdownDisplay_b() {
+        var dropdownSelected_b = $('#TravelManagementCompany option:selected').text();
+        $('#sBox1').text(dropdownSelected_b);
+    }
+    function changeDropdownDisplay_c() {
+        var dropdownSelected_c = $('#GDSUsed option:selected').text();
+        $('#sBox2').text(dropdownSelected_c);
+    }
+    function changeDropdownDisplay_d() {
+        var dropdownSelected_d = $('#BookingToolUsed option:selected').text();
+        $('#sBox3').text(dropdownSelected_d);
+    }
+
+
+checkForRegCookie();
+
+</script>
+
+<!-- JQUERY HERE IS JUST FOR DEV, THIS SHOULD BE REMOVED IF COPYING THIS EXAMPLE -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/cms/dam/modaljs.js"></script>
+<script src="/cms/dam/vaForms.js"></script>
+<script src="/build/vaForms.min.js"></script>

@@ -1,0 +1,408 @@
+<!-- header scripts -->
+<script src="/cms/.resources/vx-template/scripts/vx-cms-head.min.js"></script>
+<style>
+.fares-table tbody tr td:nth-of-type(8)>a {
+    background: #7B4397;
+    color: #FFF;
+    display: inline-block;
+    font-size: 12px;
+    font-size: 1.2rem;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 84px;
+}
+.fares-table thead tr th {
+    font-family: 'Gotham SSm 7r', 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    font-size: 10px !important;
+    font-size: 1rem !important;
+    line-height: 11px !important;
+    padding: 20px 16px 20px 0;
+    position: relative;
+    text-align: left !important;
+    text-transform: uppercase;
+    vertical-align: bottom !important;
+}
+.fares-table tbody tr td {
+    font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    font-size: 18px !important;
+    font-size: 1.8rem !important;
+    line-height: 36px !important;
+    padding: 20px 0 !important;
+    position: relative;
+    width: 80px !important;
+}
+.fares-table tbody tr td:first-child {
+    font-family: 'Gotham SSm 7r', 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    text-transform: uppercase !important;
+    width: 160px !important;
+    padding-right: 140px;
+}
+.text-body.purple .fares-table a,
+.text-body.red .fares-table a {
+    border-bottom: none;
+}
+@media (min-width: 551px) {
+    .text-body .wrap .content {
+    padding-left: 0px;
+    padding-right: 0px;
+    }
+}
+@media (min-width: 1025px) {
+    .fares-table tbody tr td {
+        font-size: 18px;
+        font-size: 1.8rem;
+        line-height: 20px;
+    }
+    .fares-table tbody tr td:first-child {
+        width: 240px;
+    }
+}
+</style>
+<script language="javascript">
+function openLink (link) {
+  document.location.href = link;
+}
+</script>
+
+<h2 class="heading-h2">Find Deals From These Cities</h2>
+<div class="table-fares">
+
+    <!-- this is breaking styling, we need to move it out of the template -->
+    <script language="javascript">
+        function showColumn(type){
+            var colPrices = $('span[name=colPrices]');
+            for (var i = 0; i < colPrices.length; i++) {
+                colPrices[i].style.display = (type === 'colPrices')?'block':'none';
+            }
+            var colPoints = $('span[name=colPoints]');
+            for (var i = 0; i < colPoints.length; i++) {
+                colPoints[i].style.display = (type === 'colPoints')?'block':'none';
+            }
+        }
+    </script>
+
+<div class="table-fares-container--mobile">
+
+                        <div class="fares-table-mobile__toggle-points">
+                            <span name="colPrices" style="display: block">US Dollars&nbsp;&nbsp;<a href="javascript:showColumn('colPoints')" class="link-underline">Elevate Points</a></span>
+                            <span name="colPoints" class="medium-grey" style="display: none"><a href="javascript:showColumn('colPrices')" class="link-underline">US Dollars</a>&nbsp;&nbsp;Elevate Points</span>
+                        </div>
+        <ul class="fare-cards">   
+            <li class="fare-card">
+                <ul class="fare-card__destinations">
+                    <li>San Francisco CA</li>
+                </ul>
+                <dl class="fare-card__details cf">
+                    <dt>Book By</dt>
+                    <dd>Mar 16</dd>
+                    <dt>Adv. Purchase</dt>
+                    <dd>21 Days</dd>
+                    <dt>Travel Period</dt>
+                    <dd>Apr 09 - May 25</dd>
+                </dl>
+
+                <div class="fare-card__fare-deal">
+                    <div class="fare-deal__from">From</div>
+                    <div class="fare-deal__price"><span name="colPrices" style="display: block"><span class="dollar">$</span>59<span class="ast">*</span></span></div>
+                    <div class="fare-deal__price"><span name="colPoints" style="display: none"><span class="points"></span>2047<span class="ast"><sup>†</sup></span></span></div>
+                    <div class="fare-deal__text"></div>
+                </div>
+
+                <div class="fare-card__btn">
+                    <a rel="nofollow" href="/book/rt/a1/dal_lax">Book</a>
+                </div>
+            </li>
+
+            <li class="fare-card">
+                <ul class="fare-card__destinations">
+                    <li>Los Angeles CA</li>
+                </ul>
+                <dl class="fare-card__details cf">
+                    <dt>Book By</dt>
+                    <dd>Mar 16</dd>
+                    <dt>Adv. Purchase</dt>
+                    <dd>21 Days</dd>
+                    <dt>Travel Period</dt>
+                    <dd>Apr 09 - May 25</dd>
+                </dl>
+
+                <div class="fare-card__fare-deal">
+                    <div class="fare-deal__from">From</div>
+                    <div class="fare-deal__price"><span name="colPrices" style="display: block"><span class="dollar">$</span>149<span class="ast">*</span></span></div>
+                    <div class="fare-deal__price"><span name="colPoints" style="display: none"><span class="points"></span>6233<span class="ast"><sup>†</sup></span></span></div>
+                    <div class="fare-deal__text"></div>
+                </div>
+
+                <div class="fare-card__btn">
+                    <a rel="nofollow" href="/book/rt/a1/dal_sfo">Book</a>
+                </div>
+            </li>
+
+            <li class="fare-card">
+                <ul class="fare-card__destinations">
+                    <li> Maui HI</li>
+                </ul>
+                <dl class="fare-card__details cf">
+                    <dt>Book By</dt>
+                    <dd>Mar 16</dd>
+                    <dt>Adv. Purchase</dt>
+                    <dd>21 Days</dd>
+                    <dt>Travel Period</dt>
+                    <dd>Apr 09 - May 25</dd>
+                </dl>
+
+                <div class="fare-card__fare-deal">
+                    <div class="fare-deal__from">From</div>
+                    <div class="fare-deal__price"><span name="colPrices" style="display: block"><span class="dollar">$</span>319<span class="ast">*</span></span></div>
+                    <div class="fare-deal__price"><span name="colPoints" style="display: none"><span class="points"></span>14140<span class="ast"><sup>†</sup></span></span></div>
+                    <div class="fare-deal__text"></div>
+                </div>
+
+                <div class="fare-card__btn">
+                    <a rel="nofollow" href="/book/rt/a1/dal_dca">Book</a>
+                </div>
+            </li>
+        
+            <li class="fare-card">
+                <ul class="fare-card__destinations">
+                    <li>Portland OR</li>
+                </ul>
+                <dl class="fare-card__details cf">
+                    <dt>Book By</dt>
+                    <dd>Mar 16</dd>
+                    <dt>Adv. Purchase</dt>
+                    <dd>21 Days</dd>
+                    <dt>Travel Period</dt>
+                    <dd>Apr 09 - May 25</dd>
+                </dl>
+
+                <div class="fare-card__fare-deal">
+                    <div class="fare-deal__from">From</div>
+                    <div class="fare-deal__price"><span name="colPrices" style="display: block"><span class="dollar">$</span>169<span class="ast">*</span></span></div>
+                    <div class="fare-deal__price"><span name="colPoints" style="display: none"><span class="points"></span>7163<span class="ast"><sup>†</sup></span></span></div>
+                    <div class="fare-deal__text"></div>
+                </div>
+
+                <div class="fare-card__btn">
+                    <a rel="nofollow" href="/book/rt/a1/dal_lga">Book</a>
+                </div>
+            </li>
+
+            <li class="fare-card">
+                <ul class="fare-card__destinations">
+                    <li>Palm Springs CA</li>
+                </ul>
+                <dl class="fare-card__details cf">
+                    <dt>Book By</dt>
+                    <dd>Mar 16</dd>
+                    <dt>Adv. Purchase</dt>
+                    <dd>21 Days</dd>
+                    <dt>Travel Period</dt>
+                    <dd>Apr 09 - May 25</dd>
+                </dl>
+
+                <div class="fare-card__fare-deal">
+                    <div class="fare-deal__from">From</div>
+                    <div class="fare-deal__price"><span name="colPrices" style="display: block"><span class="dollar">$</span>189<span class="ast">*</span></span></div>
+                    <div class="fare-deal__price"><span name="colPoints" style="display: none"><span class="points"></span>8094<span class="ast"><sup>†</sup></span></span></div>
+                    <div class="fare-deal__text"></div>
+                </div>
+
+                <div class="fare-card__btn">
+                    <a rel="nofollow" href="/book/rt/a1/dal_las">Book</a>
+                </div>
+            </li>
+        
+            <li class="fare-card">
+                <ul class="fare-card__destinations">
+                    <li>San Diego CA</li>
+                </ul>
+                <dl class="fare-card__details cf">
+                    <dt>Book By</dt>
+                    <dd>Mar 16</dd>
+                    <dt>Adv. Purchase</dt>
+                    <dd>21 Days</dd>
+                    <dt>Travel Period</dt>
+                    <dd>Apr 09 - May 25</dd>
+                </dl>
+
+                <div class="fare-card__fare-deal">
+                    <div class="fare-deal__from">From</div>
+                    <div class="fare-deal__price"><span name="colPrices" style="display: block"><span class="dollar">$</span>159<span class="ast">*</span></span></div>
+                    <div class="fare-deal__price"><span name="colPoints" style="display: none"><span class="points"></span>6698<span class="ast"><sup>†</sup></span></span></div>
+                    <div class="fare-deal__text"></div>
+                </div>
+
+                <div class="fare-card__btn">
+                    <a rel="nofollow" href="/book/rt/a1/jfk_fll">Book</a>
+                </div>
+            </li>
+        
+            <li class="fare-card">
+                <ul class="fare-card__destinations">
+                    <li>Seattle WA</li>
+                </ul>
+                <dl class="fare-card__details cf">
+                    <dt>Book By</dt>
+                    <dd>Mar 16</dd>
+                    <dt>Adv. Purchase</dt>
+                    <dd>21 Days</dd>
+                    <dt>Travel Period</dt>
+                    <dd>Apr 09 - May 25</dd>
+                </dl>
+
+                <div class="fare-card__fare-deal">
+                    <div class="fare-deal__from">From</div>
+                    <div class="fare-deal__price"><span name="colPrices" style="display: block"><span class="dollar">$</span>149<span class="ast">*</span></span></div>
+                    <div class="fare-deal__price"><span name="colPoints" style="display: none"><span class="points"></span>6233<span class="ast"><sup>†</sup></span></span></div>
+                    <div class="fare-deal__text"></div>
+                </div>
+
+                <div class="fare-card__btn">
+                    <a rel="nofollow" href="/book/rt/a1/jfk_las">Book</a>
+                </div>
+            </li>
+        
+            
+        </ul>
+    </div>
+
+    <div class="table-fares-container">
+        <table class="fares-table">
+            <thead>
+                <tr>
+                    <th>
+                    From
+                    </th>
+                    <th>
+                        <div class="fares-table__toggle-points">
+                            <span name="colPrices" style="display: block">US Dollars&nbsp;&nbsp;<a href="javascript:showColumn('colPoints')" class="link-underline">Elevate Points</a></span>
+                            <span name="colPoints" class="medium-grey" style="display: none"><a href="javascript:showColumn('colPrices')" class="link-underline">US Dollars</a>&nbsp;&nbsp;Elevate Points</span>
+                        </div>
+                        Prices Start At</span>
+                    </th>
+                    <th>Book By</th>
+                    <th>Advance Purchase</th>
+                    <th>Travel Period</th>
+                    <th><a href="#textFooter" target="_self" class="fares-table__restrictions link-underline">Restrictions apply</a></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>
+                      San Francisco<span> CA</span>
+                        <div class="label"><span class="trip"></div>
+                    </td>
+                    <td>
+                        <span name="colPrices" style="display: block">$59<sup>*</span>
+                        <span name="colPoints" style="display: none">2047<sup>†</sup></span>
+                    </td>
+                    <td>Mar 16</td>
+                    <td>21 Days</td>
+                    <td>Apr 09 - May 25</td>
+                    <td><a rel="nofollow" href="/book/rt/a1/sfo_den">Book</a></td>
+
+          </tr>
+                <tr>
+                    <td>
+                        Los Angeles<span> CA</span>
+                        <div class="label"><span class="trip"></div>
+                    </td>
+                    <td>
+                        <span name="colPrices" style="display: block">$149<sup>*</span>
+                        <span name="colPoints" style="display: none">6233<sup>†</sup></span>
+                    </td>
+                    <td>Mar 16</td>
+                    <td>21 Days</td>
+                    <td>Apr 09 - May 25</td>
+                    <td><a rel="nofollow" href="/book/rt/a1/lax_den">Book</a></td>
+
+          </tr>
+                <tr>
+                    <td>
+                        Maui<span> HI</span>
+                        <div class="label"><span class="trip"></div>
+                    </td>
+                    <td>
+                        <span name="colPrices" style="display: block">$319<sup>*</span>
+                        <span name="colPoints" style="display: none">14140<sup>†</sup></span>
+                    </td>
+                    <td>Mar 16</td>
+                    <td>21 Days</td>
+                    <td>Apr 09 - May 25</td>
+                    <td><a rel="nofollow" href="/book/rt/a1/ogg_den">Book</a></td>
+
+          </tr>
+                <tr>
+                    <td>
+                        Portland<span> OR</span>
+                        <div class="label"><span class="trip"></div>
+                    </td>
+                    <td>
+                        <span name="colPrices" style="display: block">$169<sup>*</span>
+                        <span name="colPoints" style="display: none">7163<sup>†</sup></span>
+                    </td>
+                    <td>Mar 16</td>
+                    <td>21 Days</td>
+                    <td>Apr 09 - May 25</td>
+                    <td><a rel="nofollow" href="/book/rt/a1/pdx_den">Book</a></td>
+
+          </tr>
+                <tr>
+                    <td>
+                        Palm Springs<span> CA</span>
+                        <div class="label"><span class="trip"></div>
+                    </td>
+                    <td>
+                        <span name="colPrices" style="display: block">$189<sup>*</span>
+                        <span name="colPoints" style="display: none">8094<sup>†</sup></span>
+                    </td>
+                    <td>Mar 16</td>
+                    <td>21 Days</td>
+                    <td>Apr 09 - May 25</td>
+                    <td><a rel="nofollow" href="/book/rt/a1/psp_den">Book</a></td>
+
+          </tr>
+                <tr>
+                    <td>
+                        San Diego<span> CA</span>
+                        <div class="label"><span class="trip"></div>
+                    </td>
+                    <td>
+                        <span name="colPrices" style="display: block">$159<sup>*</span>
+                        <span name="colPoints" style="display: none">6698<sup>†</sup></span>
+                    </td>
+                    <td>Mar 16</td>
+                    <td>21 Days</td>
+                    <td>Apr 09 - May 25</td>
+                    <td><a rel="nofollow" href="/book/rt/a1/san_den">Book</a></td>
+
+          </tr>
+                <tr>
+                    <td>
+                        Seattle<span> WA</span>
+                        <div class="label"><span class="trip"></div>
+                    </td>
+                    <td>
+                        <span name="colPrices" style="display: block">$149<sup>*</span>
+                        <span name="colPoints" style="display: none">6233<sup>†</sup></span>
+                    </td>
+                    <td>Mar 16</td>
+                    <td>21 Days</td>
+                    <td>Apr 09 - May 25</td>
+                    <td><a rel="nofollow" href="/book/rt/a1/sea_den">Book</a></td>
+
+          </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

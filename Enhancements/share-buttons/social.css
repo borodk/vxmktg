@@ -1,0 +1,112 @@
+#sticky-social a { 
+   text-decoration: none;
+}
+#sticky-social ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+.text-body #sticky-social a {
+	border-bottom: none;
+}
+#sticky-social {
+	left: 0;
+	position: fixed;
+	top: 150px;
+}
+#sticky-social #share {
+	font-size: 8px;
+	font-weight: bold;
+	margin-left: 3px;
+}
+#sticky-social a {
+	background: #333;
+	color: #fff;
+	display: block;
+	height: 35px;
+	font-size: 16px;
+	line-height: 35px;
+	position: relative;
+	text-align: center;
+	width: 35px;
+}
+#sticky-social a span {
+	line-height: 35px;
+	left: -120px;
+	position: absolute;
+	text-align: center;
+	width: 120px;
+}
+#sticky-social a:hover span {
+   left: 100%;
+}
+#sticky-social a[class*="facebook"],
+#sticky-social a[class*="facebook"]:hover,
+#sticky-social a[class*="facebook"] span { background: #3b5998; }
+
+#sticky-social a[class*="twitter"],
+#sticky-social a[class*="twitter"]:hover,
+#sticky-social a[class*="twitter"] span { background: #00aced; }
+
+#sticky-social a[class*="gplus"],
+#sticky-social a[class*="gplus"]:hover,
+#sticky-social a[class*="gplus"] span { background: #dd4b39; }
+
+#sticky-social a[class*="mail"],
+#sticky-social a[class*="mail"]:hover,
+#sticky-social a[class*="mail"] span { background: #333; }
+
+/*** mobile ***/
+@media (max-width: 551px) {
+
+	.people-picker,
+	.city-list {
+		margin-top: 80px;
+	}
+	.page-deals .page-deals-internal-header-selector {
+		margin-top: 30px;
+		margin-bottom: -60px;
+	}
+	#sticky-social {
+		top: -95px;
+		left: -28px;
+		position: relative;
+		width: 118%;
+		height: 44px;
+		background: #000;
+		text-align: center;
+	}
+	#sticky-social a {
+		padding: 4px 0px;
+    font-size: 20px;
+    width: 50px;
+	}
+	#sticky-social #share {
+		display: none;
+	}
+	#sticky-social ul {
+		margin: 0 auto;
+    	max-width: 100%;
+    	display: inline-block;
+	}
+	#sticky-social li {
+		float: left;
+	}
+	#sticky-social a span {
+		display: none;
+	}
+	#sticky-social a[class*="facebook"],
+	#sticky-social a[class*="facebook"]:hover,
+	#sticky-social a[class*="facebook"] span,
+	#sticky-social a[class*="twitter"],
+	#sticky-social a[class*="twitter"]:hover,
+	#sticky-social a[class*="twitter"] span,
+	#sticky-social a[class*="gplus"],
+	#sticky-social a[class*="gplus"]:hover,
+	#sticky-social a[class*="gplus"] span,
+	#sticky-social a[class*="mail"],
+	#sticky-social a[class*="mail"]:hover,
+	#sticky-social a[class*="mail"] span
+	{ background: #000; }
+
+}

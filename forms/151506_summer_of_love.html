@@ -1,0 +1,429 @@
+<!-- ON THE DESKTOP -->
+<!-- <script src="modal/modal.js"></script>
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6612472/695864/css/fonts.css" />
+<script type="text/javascript" src="http://static.virginamerica.com/Web3/dgtlmktg/js/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="modal/modal.css" /> -->
+
+<!-- get the modal -->
+<script src="/cms/dam/modaljs.js"></script>
+<link rel="stylesheet" type="text/css" href="/cms/dam/modalcss.css" />
+
+<script type="text/javascript">
+
+//all the cookie functionality
+function getCookie (name) {
+    var dcookie = document.cookie; 
+    var cname = name + "=";
+    var clen = dcookie.length;
+    var cbegin = 0;
+            while (cbegin < clen) {
+            var vbegin = cbegin + cname.length;
+                    if (dcookie.substring(cbegin, vbegin) == cname) { 
+                    var vend = dcookie.indexOf (";", vbegin);
+                            if (vend == -1) vend = clen;
+                    return unescape(dcookie.substring(vbegin, vend));
+                    }
+            cbegin = dcookie.indexOf(" ", cbegin) + 1;
+                    if (cbegin == 0) break;
+            }
+    return null;
+}
+function setRegCookie(c_name,value,exdays)
+{
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+}
+function checkForRegCookie() {
+    regCheck = getCookie('test-cookie');
+    if (regCheck !== null && regCheck !== "") {
+        window.location = "/cms/promos/dallas-summer-of-love-thank-you";
+    } else {
+        return false;
+    }
+}
+
+//form validation and then cookie creation and submission all in the one function, triggered by the submit button
+function validateForm() {
+
+    //Validate First Name
+    var fname = document.forms["DAL_SUMMER_LOVE_FORM"]["DSOL_FIRST_NAME"].value;
+    if (fname == null || fname == "") {
+        alertModal('Oops. We need a little more info.', 'Please enter your first name.');
+        return false;
+    }
+
+    //Validate Last Name
+    var lname = document.forms["DAL_SUMMER_LOVE_FORM"]["DSOL_LAST_NAME"].value;
+    if (lname == null || lname == "") {
+        alertModal('Oops. We need a little more info.', 'Please enter your last name.');
+        return false;
+    }
+
+    //Validate Email Address
+    var x=document.forms["DAL_SUMMER_LOVE_FORM"]["EMAIL_ADDRESS_"].value;
+    var atpos=x.indexOf("@");
+    var dotpos=x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alertModal('Oops. We need a little more info.', 'Please enter a valid email address.');
+        return false;
+    }
+
+    //Validate Phone
+    var emailac = document.forms["DAL_SUMMER_LOVE_FORM"]["DSOL_PHONE"].value;
+    if (emailac == null || emailac == "") {
+        alertModal('Oops. We need a little more info.', 'Please enter your phone number.');
+          return false;
+    }
+
+    //Validate PNR NUmber
+    var lname = document.forms["DAL_SUMMER_LOVE_FORM"]["DSOL_PNR_ONE"].value;
+    if (lname == null || lname == "" || lname.length > 6 || (!/^[a-z0-9]+$/i.test(lname))) {
+        alertModal('Oops. We need a little more info.', 'Please enter PNR number.');
+        return false;
+    }
+    //Validate PNR NUmber
+    var lname = document.forms["DAL_SUMMER_LOVE_FORM"]["DSOL_PNR_TWO"].value;
+    if (lname == null || lname == "" || lname.length > 6 || (!/^[a-z0-9]+$/i.test(lname))) {
+        alertModal('Oops. We need a little more info.', 'Please enter PNR number.');
+        return false;
+    }
+    //Validate PNR NUmber
+    var lname = document.forms["DAL_SUMMER_LOVE_FORM"]["DSOL_PNR_THREE"].value;
+    if (lname == null || lname == "" || lname.length > 6 || (!/^[a-z0-9]+$/i.test(lname))) {
+        alertModal('Oops. We need a little more info.', 'Please enter PNR number.');
+        return false;
+    }
+    //Validate PNR NUmber
+    var lname = document.forms["DAL_SUMMER_LOVE_FORM"]["DSOL_PNR_FOUR"].value;
+    if (lname == null || lname == "" || lname.length > 6 || (!/^[a-z0-9]+$/i.test(lname))) {
+        alertModal('Oops. We need a little more info.', 'Please enter PNR number.');
+        return false;
+    }
+    //Validate PNR NUmber
+    var lname = document.forms["DAL_SUMMER_LOVE_FORM"]["DSOL_PNR_FIVE"].value;
+    if (lname == null || lname == "" || lname.length > 6 || (!/^[a-z0-9]+$/i.test(lname))) {
+        alertModal('Oops. We need a little more info.', 'Please enter PNR number.');
+        return false;
+    }
+    //Validate PNR NUmber
+    var lname = document.forms["DAL_SUMMER_LOVE_FORM"]["DSOL_PNR_SIX"].value;
+    if (lname == null || lname == "" || lname.length > 6 || (!/^[a-z0-9]+$/i.test(lname))) {
+        alertModal('Oops. We need a little more info.', 'Please enter PNR number.');
+        return false;
+    }
+    //Validate PNR NUmber
+    var lname = document.forms["DAL_SUMMER_LOVE_FORM"]["DSOL_PNR_SEVEN"].value;
+    if (lname == null || lname == "" || lname.length > 6 || (!/^[a-z0-9]+$/i.test(lname))) {
+        alertModal('Oops. We need a little more info.', 'Please enter PNR number.');
+        return false;
+    }
+    //Validate PNR NUmber
+    var lname = document.forms["DAL_SUMMER_LOVE_FORM"]["DSOL_PNR_EIGHT"].value;
+    if (lname == null || lname == "" || lname.length > 6 || (!/^[a-z0-9]+$/i.test(lname))) {
+        alertModal('Oops. We need a little more info.', 'Please enter PNR number.');
+        return false;
+    }
+    //Validate PNR NUmber
+    var lname = document.forms["DAL_SUMMER_LOVE_FORM"]["DSOL_PNR_NINE"].value;
+    if (lname == null || lname == "" || lname.length > 6 || (!/^[a-z0-9]+$/i.test(lname))) {
+        alertModal('Oops. We need a little more info.', 'Please enter PNR number.');
+        return false;
+    }
+    //Validate PNR NUmber
+    var lname = document.forms["DAL_SUMMER_LOVE_FORM"]["DSOL_PNR_TEN"].value;
+    if (lname == null || lname == "" || lname.length > 6 || (!/^[a-z0-9]+$/i.test(lname))) {
+        alertModal('Oops. We need a little more info.', 'Please enter PNR number.');
+        return false;
+    }
+    //Validate Optin
+    if (document.forms['DAL_SUMMER_LOVE_FORM']['DSOL_OPTIN'].checked == false ){
+        alertModal('Oops. We need a little more info.',  'Please accept the the terms and conditions of the offer.' );
+        return false;
+    }
+
+    setRegCookie('test-cookie','registered',365);
+
+
+}
+
+// checkForRegCookie();
+
+
+</script>
+<style type="text/css">
+    button {
+        color: #FFFFFF;
+        background-color: #7b4397;
+        font-family:"Gotham SSm 4r","Gotham SSm A","Gotham SSm B",Arial,sans-serif;
+        font-weight: 700;
+        font-size: .8em;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-appearance: button;
+        box-sizing: border-box;
+        height:36px;
+        width:100%;
+        vertical-align: top;
+        outline: none;
+        border:0px;
+    }
+    button:hover {
+        background-color: #9d27d9;
+        -webkit-transition: background-color 500ms ease-in-out;
+        -moz-transition: background-color 500ms ease-in-out;
+        -o-transition: background-color 500ms ease-in-out;
+        transition: background-color 500ms ease-in-out;
+    }
+    input[type="text"] {
+        font-family: Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        font-size: 1.4rem;
+        height: 36px;
+        padding: 0 12px;
+        color:#666666;
+        width:100%;
+        border: 1px solid #ccc;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+    }
+    input[type="checkbox"]{
+        margin-right: 10px;
+    }
+    select {
+        width:100%;
+        height:36px;
+        /*background-color: #ebebeb;*/
+        font-family:Arial, sans-serif;
+        font-size:1.4rem;
+        border: 1px solid #ccc;
+         appearance:none;
+         -webkit-appearance: none;
+         -moz-appearance: none;
+        border-radius:0 !important;
+        -webkit-border-radius:0 !important;
+        -moz-border-radius:0 !important;
+        padding-left: 12px;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+        /*vertical-align: middle !important;*/
+        /*padding:.5em;/.6em;*/
+    }
+    .formRow {
+        width:100%;
+    }
+    .left {
+        width:47%;
+        float:left;
+    }
+    .right {
+        width:47%;
+        float:right;
+    }
+    #dropdownSelect {
+        width:380px;
+    }
+    select {
+        width:100%;
+        height:36px;
+        /*background-color: #ebebeb;*/
+        font-family:Arial, sans-serif;
+        font-size:1.4rem;
+        border: 1px solid #ccc;
+         appearance:none;
+         -webkit-appearance: none;
+         -moz-appearance: none;
+        border-radius:0 !important;
+        -webkit-border-radius:0 !important;
+        -moz-border-radius:0 !important;
+        padding-left: 12px;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+        /*vertical-align: middle !important;*/
+        /*padding:.5em;/.6em;*/
+    }
+
+    @media only screen and (max-width: 870px) {
+        #dropdownSelect {
+            width:320px;
+        }
+    }
+    
+    @media only screen and (max-width: 640px) {
+        .left {
+            width:100%;
+            float:none;
+        }
+        .right {
+            width:100%;
+            float:none;
+        }
+        input[type="text"] {
+            width:100%;
+        }
+        #dropdownSelect {
+            width:450px;
+        }
+    }
+    @media only screen and (max-width: 450px) {
+        #dropdownSelect {
+            width:350px;
+        }
+    }
+    /*@media only screen and (max-width: 360px) {
+        #dropdownSelect {
+            width:300px;
+        }
+    }*/
+</style>
+<form name="DAL_SUMMER_LOVE_FORM" action = "https://elevate.virginamerica.com/pub/rf" method = "post">
+<input type="hidden" name="_ri_" value="X0Gzc2X%3DWQpglLjHJlYQGlRaKzePYM14FSNLyIhDiCzazcoDmBzetnVwjpnpgHlpgneHmgJoXX0Gzc2X%3DWQpglLjHJlYQGi81EBsWLzbBFnX26C2zanzbh4AKNizeMf">
+
+<h2 class="subheading" style="margin-top:0px;">ENTER PNRs BOOKED BETWEEN AUGUST 17 - SEPTEMBER 17 (FOR TRIPS FLOWN BY OCTOBER 12) AND ENTER TO WIN A GIFT CARD WORTH UP TO $500 AND THE CHANCE TO WIN A TRIP TO HAWAII. ENTER BY SEPTEMBER 17.</h2>
+<div class"formRow">
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            First Name
+            </label>
+            <input id="firstNameField" type="text" name="DSOL_FIRST_NAME" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="right">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Last Name
+            </label>
+            <input id="lastNameField" type="text" name="DSOL_LAST_NAME" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div class="formRow" style="clear:both;">
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Email Address
+            </label>
+            <input id="emailField" type="text" name="EMAIL_ADDRESS_" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+    <div class="right">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Phone Number
+            </label>
+            <input id="phoneNumberField" type="text" name="DSOL_PHONE" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            PNR Number 1
+            </label>
+            <input id="pnroneField" type="text" name="DSOL_PNR_ONE" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="right">
+        <p>
+            <label class="label" style="color:#7b4397">
+            PNR Number 2
+            </label>
+            <input id="pnrtwoField" type="text" name="DSOL_PNR_TWO" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            PNR Number 3
+            </label>
+            <input id="pnrthreeField" type="text" name="DSOL_PNR_THREE" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="right">
+        <p>
+            <label class="label" style="color:#7b4397">
+            PNR Number 4
+            </label>
+            <input id="pnrfourField" type="text" name="DSOL_PNR_FOUR" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            PNR Number 5
+            </label>
+            <input id="pnrfiveField" type="text" name="DSOL_PNR_FIVE" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="right">
+        <p>
+            <label class="label" style="color:#7b4397">
+            PNR Number 6
+            </label>
+            <input id="pnrsixField" type="text" name="DSOL_PNR_SIX" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            PNR Number 7
+            </label>
+            <input id="pnrfiveField" type="text" name="DSOL_PNR_SEVEN" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="right">
+        <p>
+            <label class="label" style="color:#7b4397">
+            PNR Number 8
+            </label>
+            <input id="pnrsixField" type="text" name="DSOL_PNR_EIGHT" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            PNR Number 9
+            </label>
+            <input id="pnrfiveField" type="text" name="DSOL_PNR_NINE" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="right">
+        <p>
+            <label class="label" style="color:#7b4397">
+            PNR Number 10
+            </label>
+            <input id="pnrsixField" type="text" name="DSOL_PNR_TEN" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+
+<p class="text-footer" style="clear:both;font-size:11px;padding-top:0px;padding-bottom:20px;margin-bottom:5px;">
+    <input type="checkbox" name="DSOL_OPTIN" checked="checked" value="y">Yes, I accept the <a href="https://www.virginamerica.com/cms/promos/dallas-summer-of-love-rules" target="_blank">official rules</a> of the Sweeps offer.
+</p>
+<button id="submitButton" style="margin-bottom:20px;" onClick="return validateForm();">Submit</button>
+</form>

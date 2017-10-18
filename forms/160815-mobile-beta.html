@@ -1,0 +1,242 @@
+<!-- ON THE DESKTOP -->
+<!-- <script src="modal/modal.js"></script>
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6612472/695864/css/fonts.css" />
+<script type="text/javascript" src="http://static.virginamerica.com/Web3/dgtlmktg/js/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="modal/modal.css" /> -->
+
+<!-- get the modal -->
+<script src="/cms/dam/modaljs.js"></script>
+<link rel="stylesheet" type="text/css" href="/cms/dam/modalcss.css" />
+
+<script type="text/javascript">
+
+//all the cookie functionality
+function getCookie (name) {
+    var dcookie = document.cookie; 
+    var cname = name + "=";
+    var clen = dcookie.length;
+    var cbegin = 0;
+            while (cbegin < clen) {
+            var vbegin = cbegin + cname.length;
+                    if (dcookie.substring(cbegin, vbegin) == cname) { 
+                    var vend = dcookie.indexOf (";", vbegin);
+                            if (vend == -1) vend = clen;
+                    return unescape(dcookie.substring(vbegin, vend));
+                    }
+            cbegin = dcookie.indexOf(" ", cbegin) + 1;
+                    if (cbegin == 0) break;
+            }
+    return null;
+}
+function setRegCookie(c_name,value,exdays)
+{
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+}
+function checkForRegCookie() {
+    regCheck = getCookie('test-cookie');
+    if (regCheck !== null && regCheck !== "") {
+        window.location = "/cms/promos/8-15-16-mobile-beta-thank-you";
+    } else {
+        return false;
+    }
+}
+
+//form validation and then cookie creation and submission all in the one function, triggered by the submit button
+function validateForm() {
+
+    //Validate First Name
+    var fname = document.forms["APP_BETA_FORM"]["APP_BETA_FIRST_NAME"].value;
+    if (fname == null || fname == "") {
+        alertModal('Oops. We need a little more info.', 'Please enter your first name.');
+          return false;
+    }
+
+    //Validate Last Name
+    var lname = document.forms["APP_BETA_FORM"]["APP_BETA_LAST_NAME"].value;
+    if (lname == null || lname == "") {
+        alertModal('Oops. We need a little more info.', 'Please enter your last name.');
+          return false;
+    }
+
+    //Validate Email Address
+    var x=document.forms["APP_BETA_FORM"]["EMAIL_ADDRESS_"].value;
+    var atpos=x.indexOf("@");
+    var dotpos=x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+          alertModal('Oops. We need a little more info.', 'Please enter a valid email address.');
+          return false;
+    }
+
+    //Elevate Number  ALERT MODAL MESSAGE WAS
+    //Oops. We need a little more info., Please enter a valid 11-digit Elevate number.
+    var CUSTOMER_ID_ = document.forms["APP_BETA_FORM"]["APP_BETA_ELEVATE_NUMBER"].value;
+    var initialElevateNumberCheck = /^[0-9]{11}$/;
+    var elevateNumberDigits = new Array();
+
+    if (CUSTOMER_ID_.match(initialElevateNumberCheck)) {
+        var elevateNumberDigits = CUSTOMER_ID_.split('');
+        var d1 = elevateNumberDigits[0];
+        var d2 = elevateNumberDigits[1];
+
+        if((d1 == 0) && (d2 == 0)) {
+            alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number.");
+                return false;
+        } 
+    } else {
+        alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number.");
+        return false;
+    }
+
+    // check for mobile os selection
+    var radios = document.getElementsByName("APP_BETA_OS");
+    if (!(radios[0].checked || radios[1].checked)) {
+        alertModal('Oops. We need a little more info.',  'Please select your mobile operating system.');
+        return false;
+    }
+    
+    //translate the optin
+    if ($('input[name=APP_BETA_GENERAL_OPTIN]:checked').length != 0) {
+        $('form[name="APP_BETA_FORM"]').append('<input type="hidden" name="EMAIL_PERMISSION_STATUS_" value="Y">');
+        $('form[name="APP_BETA_FORM"]').append('<input type="hidden" name="FARESALE_OPTIN" value="Y">');
+        $('form[name="APP_BETA_FORM"]').append('<input type="hidden" name="PARTNER_OPTIN" value="Y">');
+        $('form[name="APP_BETA_FORM"]').append('<input type="hidden" name="DEPARTUREDEALS_OPTIN" value="Y">');
+    }
+
+    setRegCookie('test-cookie','registered',365);
+
+}
+
+checkForRegCookie();
+
+
+</script>
+<style type="text/css">
+    button {
+        color: #FFFFFF;
+        background-color: #7b4397;
+        font-family:"Gotham SSm 4r","Gotham SSm A","Gotham SSm B",Arial,sans-serif;
+        font-weight: 700;
+        font-size: .8em;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-appearance: button;
+        box-sizing: border-box;
+        height:36px;
+        width:100%;
+        vertical-align: top;
+        outline: none;
+        border:0px;
+    }
+    button:hover {
+        background-color: #9d27d9;
+        -webkit-transition: background-color 500ms ease-in-out;
+        -moz-transition: background-color 500ms ease-in-out;
+        -o-transition: background-color 500ms ease-in-out;
+        transition: background-color 500ms ease-in-out;
+    }
+    input[type="text"] {
+        font-family: Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        font-size: 1.4rem;
+        height: 36px;
+        padding: 0 12px;
+        color:#666666;
+        width:100%;
+        border: 1px solid #ccc;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+    }
+    input[type="checkbox"],
+    input[type="radio"]{
+        margin-right: 10px;
+    }
+    .formRow {
+        width:100%;
+    }
+    .left {
+        width:47%;
+        float:left;
+    }
+    .right {
+        width:47%;
+        float:right;
+    }
+    /*@media only screen and (max-width: 870px) {}*/
+    
+    @media only screen and (max-width: 640px) {
+        .left {
+            width:100%;
+            float:none;
+        }
+        .right {
+            width:100%;
+            float:none;
+        }
+        input[type="text"] {
+            width:100%;
+        }
+    }
+    /*@media only screen and (max-width: 450px) {}*/
+
+</style>
+<form name="APP_BETA_FORM" action = "https://elevate.virginamerica.com/pub/rf" method = "post" id = "qform">
+<input type="hidden" name="_ri_" value="X0Gzc2X%3DYQpglLjHJlYQGkWirCdkgfCoAXeunbCdckDzdraiSvEM1d7fVwjpnpgHlpgneHmgJoXX0Gzc2X%3DYQpglLjHJlYQGsCrhduzaCzbEMn7zcIU0imSEYzdraiSvEM1d7f">
+<div class"formRow">
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            First Name*
+            </label>
+            <input id="firstNameField" type="text" name="APP_BETA_FIRST_NAME" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="right">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Last Name*
+            </label>
+            <input id="lastNameField" type="text" name="APP_BETA_LAST_NAME" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div class="formRow" style="clear:both;">
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Email Address*
+            </label>
+            <input id="emailField" type="text" name="EMAIL_ADDRESS_" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+    <div class="right">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Elevate Number*
+            </label>
+            <input id="elevateNumberField" type="text" maxlength="11" name="APP_BETA_ELEVATE_NUMBER" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+
+<label class="label" style="color:#7b4397; clear:both;">Mobile Operating System: </label>
+<p class="text-footer" style="clear:both;font-size:11px;padding-top:0px;padding-bottom:20px;margin-bottom:5px;">
+   <input type="radio" name="APP_BETA_OS" value="iOS">iOS <span style="margin-left:5px;">or</span><input type="radio" name="APP_BETA_OS" value="Android" style="margin-left:10px;">Android
+</p>
+
+<p class="subhead" style="clear:both;">Not an Elevate member? <a href="https://www.virginamerica.com/elevate-frequent-flyer/sign-up">Sign up</a>.</p>
+<p class="text-footer" style="clear:both;font-size:11px;padding-top:0px;padding-bottom:20px;margin-bottom:5px;">
+   <input type="checkbox" name="APP_BETA_GENERAL_OPTIN" checked="checked" value="y">Opt-In to the Virgin America Mobile App Beta Test group and the chance for 1,000 Elevate points. <a href="/cms/legal/privacy-policy" style="text-decoration:none !important;">Virgin America Privacy Policy</a>
+</p>
+
+<button id="submitButton" style="margin-bottom:20px;" onClick="return validateForm();">Submit</button>
+</form>
+

@@ -1,0 +1,123 @@
+<!-- get the modal -->
+<script src="/cms/dam/jquery.min.js"></script>
+<script src="/cms/dam/modaljs.js"></script>
+<link rel="stylesheet" type="text/css" href="/cms/dam/modalcss.css" />
+<script type="text/javascript">
+
+//form validation and submission
+function validateForm() {
+    //Validate Email Address
+    var x=document.forms["HIDDENVAL_FORM"]["EMAIL_ADDRESS_"].value;
+    var atpos=x.indexOf("@");
+    var dotpos=x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+          alertModal('Oops. We need a little more info.', 'Please enter a valid email address.');
+          return false;
+    }
+}
+</script>
+
+<style type="text/css">
+    button {
+        color: #FFFFFF;
+        background-color: #7b4397;
+        font-family:"Gotham SSm 4r","Gotham SSm A","Gotham SSm B",Arial,sans-serif;
+        font-weight: 700;
+        font-size: .8em;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-appearance: button;
+        box-sizing: border-box;
+        height:36px;
+        width:100%;
+        vertical-align: top;
+        outline: none;
+        border:0px;
+    }
+    button:hover {
+        background-color: #9d27d9;
+        -webkit-transition: background-color 500ms ease-in-out;
+        -moz-transition: background-color 500ms ease-in-out;
+        -o-transition: background-color 500ms ease-in-out;
+        transition: background-color 500ms ease-in-out;
+    }
+    input[type="text"] {
+        font-family: Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        font-size: 1.4rem;
+        height: 36px;
+        padding: 0 12px;
+        color:#666666;
+        width:100%;
+        border: 1px solid #ccc;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+    }
+    .fares {
+        padding-top: 0px !important;
+        padding-bottom: 30px !important;
+    }
+    .promobox {
+        padding-bottom: 0px;
+        margin-top: -80px;
+    }
+    .formRow {
+        width:100%;
+        clear:both;
+    }
+    .formRow .label {
+        color:#000;
+    }
+    #submitButton {
+        display: block;
+        width: 280px;
+        margin: 0 auto;
+        margin-bottom:20px
+    }
+    #emailField {
+        width: 280px;
+        margin-top:20px;
+    }
+    @media only screen and (max-width: 640px) {
+        input[type="text"] {
+            width:100%;
+        }
+    }
+    @media (max-width: 551px){
+        .promobox {
+            margin-top:-40px !important;
+        }
+        #emailField,
+        #submitButton {
+            width: 180px;
+        }
+    }
+</style>
+
+<div class="promobox">
+    <div class="centered">
+<form name="HIDDENVAL_FORM" action="https://elevate.virginamerica.com/pub/rf" method="post" id ="qform">
+<input type="hidden" name="_ri_" value="X0Gzc2X%3DYQpglLjHJlYQGgzarae2D3rMzfn4Obfi3hTEW9DUhO6mXDKsnVwjpnpgHlpgneHmgJoXX0Gzc2X%3DYQpglLjHJlYQGn3SLpzbzeXFKzf7ts773pzalzaJ40hditw6F3oh">
+<div class="formRow">
+    <div>
+        <p style="text-align:center !important;">
+            <label class="label">
+            Sign up to receive fares, promotional offers, and news.
+            </label>
+            <input id="emailField" type="text" name="EMAIL_ADDRESS_" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+			<input type="hidden" name="HIDDENVAL_FIELD" value="Form JFK">
+			<input type="hidden" name="FARESALE_OPTIN" value="Y">
+			<input type="hidden" name="ELEVATE_OPTIN" value="Y">
+			<input type="hidden" name="PARTNER_OPTIN" value="Y">
+			<input type="hidden" name="DEPARTUREDEALS_OPTIN" value="Y">
+        </p>
+    </div>
+</div>
+<button id="submitButton" onClick="return validateForm();">Sign Me Up</button>
+</form>
+</div>
+</div>

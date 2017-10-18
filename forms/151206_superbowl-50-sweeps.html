@@ -1,0 +1,206 @@
+<!-- ON THE DESKTOP -->
+<!-- <script src="modal/modal.js"></script>
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6612472/695864/css/fonts.css" />
+<script type="text/javascript" src="http://static.virginamerica.com/Web3/dgtlmktg/js/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="modal/modal.css" /> -->
+
+<!-- get the modal -->
+<script src="/cms/dam/modaljs.js"></script>
+<link rel="stylesheet" type="text/css" href="/cms/dam/modalcss.css" />
+
+<script type="text/javascript">
+
+//all the cookie functionality
+function getCookie (name) {
+    var dcookie = document.cookie;
+    var cname = name + "=";
+    var clen = dcookie.length;
+    var cbegin = 0;
+            while (cbegin < clen) {
+            var vbegin = cbegin + cname.length;
+                    if (dcookie.substring(cbegin, vbegin) == cname) {
+                    var vend = dcookie.indexOf (";", vbegin);
+                            if (vend == -1) vend = clen;
+                    return unescape(dcookie.substring(vbegin, vend));
+                    }
+            cbegin = dcookie.indexOf(" ", cbegin) + 1;
+                    if (cbegin == 0) break;
+            }
+    return null;
+}
+function setRegCookie(c_name,value,exdays)
+{
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+}
+function checkForRegCookie() {
+    regCheck = getCookie('visa-sb50-cookie');
+    if (regCheck !== null && regCheck !== "") {
+        window.location = "/cms/elevate-frequent-flyer/promotions/visa-super-bowl-50-sweeps-thanks";
+    } else {
+        return false;
+    }
+}
+
+//form validation and then cookie creation and submission all in the one function, triggered by the submit button
+function validateForm() {
+
+    //Validate First Name
+    var fname = document.forms["VISA_SB50_FORM"]["VISA_SB50_FIRST_NAME"].value;
+    if (fname == null || fname == "") {
+        alertModal('Oops. We need a little more info.', 'Please enter your first name.');
+          return false;
+    }
+
+    //Validate Last Name
+    var lname = document.forms["VISA_SB50_FORM"]["VISA_SB50_LAST_NAME"].value;
+    if (lname == null || lname == "") {
+        alertModal('Oops. We need a little more info.', 'Please enter your last name.');
+          return false;
+    }
+
+    //Validate Email Address
+    var x=document.forms["VISA_SB50_FORM"]["EMAIL_ADDRESS_"].value;
+    var atpos=x.indexOf("@");
+    var dotpos=x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+          alertModal('Oops. We need a little more info.', 'Please enter a valid email address.');
+          return false;
+    }
+
+    //Validate Rules
+    if (document.forms['VISA_SB50_FORM']['VISA_SB50_TERMS'].checked == false ){
+        alertModal('Oops. We need a little more info.',  'Please accept the the terms and conditions of the offer.' );
+        return false;
+    }
+
+    //translate the optin
+    if ($('input[name=VISA_SB50_GENERAL_OPTIN]:checked').length != 0) {
+        $('form[name="VISA_SB50_FORM"]').append('<input type="hidden" name="EMAIL_PERMISSION_STATUS_" value="I">');
+        $('form[name="VISA_SB50_FORM"]').append('<input type="hidden" name="FARESALE_OPTIN" value="Y">');
+        $('form[name="VISA_SB50_FORM"]').append('<input type="hidden" name="PARTNER_OPTIN" value="Y">');
+        $('form[name="VISA_SB50_FORM"]').append('<input type="hidden" name="DEPARTUREDEALS_OPTIN" value="Y">');
+    }
+
+    setRegCookie('visa-sb50-cookie','registered',365);
+
+}
+
+checkForRegCookie();
+
+</script>
+<style type="text/css">
+    button {
+        color: #FFFFFF;
+        background-color: #7b4397;
+        font-family:"Gotham SSm 4r","Gotham SSm A","Gotham SSm B",Arial,sans-serif;
+        font-weight: 700;
+        font-size: .8em;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-appearance: button;
+        box-sizing: border-box;
+        height:36px;
+        width:100%;
+        vertical-align: top;
+        outline: none;
+        border:0px;
+    }
+    button:hover {
+        background-color: #9d27d9;
+        -webkit-transition: background-color 500ms ease-in-out;
+        -moz-transition: background-color 500ms ease-in-out;
+        -o-transition: background-color 500ms ease-in-out;
+        transition: background-color 500ms ease-in-out;
+    }
+    input[type="text"] {
+        font-family: Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        font-size: 1.4rem;
+        height: 36px;
+        padding: 0 12px;
+        color:#666666;
+        width:100%;
+        border: 1px solid #ccc;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+    }
+    input[type="checkbox"]{
+        margin-right: 10px;
+    }
+    .formRow {
+        width:100%;
+    }
+    .left {
+        width:47%;
+        float:left;
+    }
+    .right {
+        width:47%;
+        float:right;
+    }
+
+    @media only screen and (max-width: 640px) {
+        .left {
+            width:100%;
+            float:none;
+        }
+        .right {
+            width:100%;
+            float:none;
+        }
+        input[type="text"] {
+            width:100%;
+        }
+    }
+
+</style>
+<form name="VISA_SB50_FORM" action = "https://elevate.virginamerica.com/pub/rf" method = "post">
+<input type="hidden" name="_ri_" value="X0Gzc2X%3DYQpglLjHJlYQGhCJzbBwuhzf2RzfBsSufpL7zgukX8nAOvNLtyOVwjpnpgHlpgneHmgJoXX0Gzc2X%3DYQpglLjHJlYQGtwBpXyhrmG6NzfzefqcrJgNPkX8nAOvNLtyO">
+<p><strong>Sweepstakes Registration:</strong></p>
+<div class"formRow">
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            First Name*
+            </label>
+            <input id="firstNameField" type="text" name="VISA_SB50_FIRST_NAME" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="right">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Last Name*
+            </label>
+            <input id="lastNameField" type="text" name="VISA_SB50_LAST_NAME" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div class="formRow" style="clear:both;">
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Email Address*
+            </label>
+            <input id="emailField" type="text" name="EMAIL_ADDRESS_" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+
+<p class="text-footer" style="clear:both;font-size:11px;padding-top:0px;padding-bottom:0px;margin-bottom:5px;">
+    <input type="checkbox" name="VISA_SB50_TERMS" value="y">Yes, I accept the Official Rules of the Visa Super Bowl 50 Sweepstakes
+</p>
+<p class="text-footer" style="clear:both;font-size:11px;padding-top:0px;padding-bottom:20px;margin-bottom:5px;">
+    <input type="checkbox" name="VISA_SB50_GENERAL_OPTIN" checked="checked" value="y">Sign me up to receive special Virgin America promotional offers and news <a href="/cms/legal/privacy-policy" style="text-decoration:none !important;">Virgin America Privacy Policy</a>
+</p>
+
+<button id="submitButton" style="margin-bottom:20px;" onClick="return validateForm();">Register Now</button>
+</form>

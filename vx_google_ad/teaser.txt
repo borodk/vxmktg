@@ -1,0 +1,5 @@
+Advertiser: Virgin America
+Subject: Virgin America Message Ad
+Description: Sample text for message ad template
+Display Url:www.virginamerica.com
+Landing Page: optional

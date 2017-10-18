@@ -1,0 +1,251 @@
+<table border="0" cellpadding="5" cellspacing="5" style="width:100%;margin-top:-60px;">
+	<tbody>
+		<tr style="width:100%;">
+			<td style="text-align:center;border-right:solid 1px #ccc;border-bottom: none; padding-right:20px;width:50%">
+      <!-- BOOKING FORM -->
+
+			<!-- get the modal -->
+			<script src="/cms/dam/modaljs.js"></script>
+			<link rel="stylesheet" type="text/css" href="/cms/dam/modalcss.css" />
+
+			<script type="text/javascript">
+
+			function validateBookForm() {
+					//Elevate Number  ALERT MODAL MESSAGE WAS
+					//Oops. We need a little more info., Please enter a valid 11-digit Elevate number.
+					var CUSTOMER_ID_ = document.forms["AIRBNB_BOOK_FORM"]["c"].value;
+					var initialElevateNumberCheck = /^[0-9]{11}$/;
+					var elevateNumberDigits = new Array();
+
+					if (CUSTOMER_ID_.match(initialElevateNumberCheck)) {
+							var elevateNumberDigits = CUSTOMER_ID_.split('');
+								var d1 = elevateNumberDigits[0]*6;
+								var d2 = elevateNumberDigits[1]*5;
+								var d3 = elevateNumberDigits[2]*4;
+								var d4 = elevateNumberDigits[3]*3;
+								var d5 = elevateNumberDigits[4]*8;
+								var d6 = elevateNumberDigits[5]*7;
+								var d7 = elevateNumberDigits[6]*6;
+								var d8 = elevateNumberDigits[7]*5;
+								var d9 = elevateNumberDigits[8]*4;
+								var d10 = elevateNumberDigits[9]*3;
+
+								var dTotal = d1+d2+d3+d4+d5+d6+d7+d8+d9+d10;
+								var dTotalDivided = Math.floor(dTotal/11);
+								var secondNumber = dTotalDivided * 11;
+								var remainder = dTotal-secondNumber;
+
+								if (remainder >=2)
+								{
+									if(elevateNumberDigits[10] == 11-remainder)
+									{
+											//alert("works!");
+											var elevateNumber = $('#bookingElevateNumberField').val();
+											return true;
+									}
+									else {
+											alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number.");
+											return false;
+									}
+								}
+							else
+							{
+									alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number.");
+									return false;
+							}
+					}
+
+					else {
+							alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number.");
+							return false;
+					}
+
+					//Validate Rules
+					/*if (document.forms['AIRBNB_BOOK_FORM']['AIRBNB_BOOK_TERMS'].checked == false ){
+							alertModal('Oops. We need a little more info.',  'Please accept the the terms and conditions of the offer.' );
+							return false;
+					}*/
+			}
+			</script>
+
+			<style type="text/css">
+					button {
+							color: #FFFFFF;
+							background-color: #7b4397;
+							font-family:"Gotham SSm 4r","Gotham SSm A","Gotham SSm B",Arial,sans-serif;
+							font-weight: 700;
+							font-size: .8em;
+							font-style: normal;
+							-webkit-font-smoothing: antialiased;
+							text-align: center;
+							text-decoration: none;
+							text-transform: uppercase;
+							-webkit-appearance: button;
+							box-sizing: border-box;
+							height:36px;
+							width:100%;
+							vertical-align: top;
+							outline: none;
+							border:0px;
+					}
+					button:hover {
+							background-color: #9d27d9;
+							-webkit-transition: background-color 500ms ease-in-out;
+							-moz-transition: background-color 500ms ease-in-out;
+							-o-transition: background-color 500ms ease-in-out;
+							transition: background-color 500ms ease-in-out;
+					}
+					input[type="text"] {
+							font-family: Arial, sans-serif;
+							font-weight: 400;
+							font-style: normal;
+							font-size: 14px;
+							font-size: 1.4rem;
+							height: 36px;
+							padding: 0 12px;
+							color:#666666;
+							width:100%;
+							border: 1px solid #ccc;
+							box-shadow: inset 2px 2px 0 0 #ebebeb;
+					}
+					input[type="checkbox"]{
+							margin-right: 10px;
+					}
+					.formRow {
+							width:100%;
+					}
+					.left {
+							width:47%;
+							float:left;
+					}
+					.formRight {
+							width:47%;
+							float:right;
+					}
+
+					@media only screen and (max-width: 640px) {
+							.left {
+									width:100%;
+									float:none;
+							}
+							.formRight {
+									width:100%;
+									float:none;
+							}
+							input[type="text"] {
+									width:100%;
+							}
+					}
+			</style>
+
+			<form name="AIRBNB_BOOK_FORM" action="https://www.airbnb.com/" onsubmit="location.href= this.action + elevateNumber" class="ng-pristine ng-valid vaForms">
+
+				 <input type="hidden" name="af" value="47720999">
+
+			<h2 class="subheading">Book Your Nook</h2>
+			<p class="subhead" style="clear:both;">Find your perfect space and earn one point per $1 spent. First time bookers get 1,500 bonus points.</p>
+			<div class="formRow">
+							<p>
+								<label>
+									<b>Elevate Number&nbsp</b>
+								</label>
+									<input id="bookingElevateNumberField" maxlength="11" name="c" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+							</p>
+			</div>
+			<button id="bookingSubmitButton" onclick="return validateBookForm();">Book Now</button>
+			<p>
+					<label>
+							<b>Not yet a member?</b> <a href="https://www.virginamerica.com/elevate-frequent-flyer/sign-up" target="_blank">JOIN NOW</a>
+					</label>
+			</p>
+		</form>
+
+			<!-- /BOOKING FORM -->
+			</td>
+			<td style="text-align:center;border-bottom: none;padding-left:20px;width:50%;">
+				<!-- HOST FORM -->
+				<script type="text/javascript">
+				function validateHostForm() {
+				    //Elevate Number  ALERT MODAL MESSAGE WAS
+				    //Oops. We need a little more info., Please enter a valid 11-digit Elevate number.
+				    var CUSTOMER_ID_ = document.forms["AIRBNB_HOST_FORM"]["c"].value;
+				    var initialElevateNumberCheck = /^[0-9]{11}$/;
+				    var elevateNumberDigits = new Array();
+
+				    if (CUSTOMER_ID_.match(initialElevateNumberCheck)) {
+				        var elevateNumberDigits = CUSTOMER_ID_.split('');
+				          var d1 = elevateNumberDigits[0]*6;
+				          var d2 = elevateNumberDigits[1]*5;
+				          var d3 = elevateNumberDigits[2]*4;
+				          var d4 = elevateNumberDigits[3]*3;
+				          var d5 = elevateNumberDigits[4]*8;
+				          var d6 = elevateNumberDigits[5]*7;
+				          var d7 = elevateNumberDigits[6]*6;
+				          var d8 = elevateNumberDigits[7]*5;
+				          var d9 = elevateNumberDigits[8]*4;
+				          var d10 = elevateNumberDigits[9]*3;
+
+				          var dTotal = d1+d2+d3+d4+d5+d6+d7+d8+d9+d10;
+				          var dTotalDivided = Math.floor(dTotal/11);
+				          var secondNumber = dTotalDivided * 11;
+				          var remainder = dTotal-secondNumber;
+
+				          if (remainder >=2)
+				          {
+				            if(elevateNumberDigits[10] == 11-remainder)
+				            {
+				                //alert("works!");
+				                var elevateNumber = $('#hostElevateNumberField').val();
+				                return true;
+				            }
+				            else {
+				                alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number.");
+				                return false;
+				            }
+				          }
+				        else
+				        {
+				            alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number.");
+				            return false;
+				        }
+				    }
+
+				    else {
+				        alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number.");
+				        return false;
+				    }
+
+				    //Validate Rules
+				    /*if (document.forms['AIRBNB_HOST_FORM']['AIRBNB_HOST_TERMS'].checked == false ){
+				        alertModal('Oops. We need a little more info.',  'Please accept the the terms and conditions of the offer.' );
+				        return false;
+				    }*/
+				}
+				</script>
+
+				<form name="AIRBNB_HOST_FORM" action="https://www.airbnb.com/" onsubmit="location.href= this.action + elevateNumber" class="ng-pristine ng-valid vaForms">
+
+				   <input type="hidden" name="af" value="47720999">
+
+				<h2 class="subheading">Host With The Most</h2>
+				<p class="subhead" style="clear:both;">Treat yourself to a getaway. Become a Host on Airbnb and earn 20,000 Elevate points to book your next reward flight.</p>
+				<div class="formRow">
+				        <p>
+				            <label>
+				            	<b>Elevate Number&nbsp</b>
+										</label>
+				            <input id="hostElevateNumberField" maxlength="11" name="c" class="formField"  onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+				        </p>
+				<button id="hostSubmitButton" onclick="return validateHostForm();">Host Now</button>
+				<p>
+						<label>
+								<b>Not yet a member?</b> <a href="https://www.virginamerica.com/elevate-frequent-flyer/sign-up" target="_blank">JOIN NOW</a>
+						</label>
+				</p>
+				</form>
+
+				<!-- /HOST FORM -->
+			</td>
+		</tr>
+	</tbody>
+</table>

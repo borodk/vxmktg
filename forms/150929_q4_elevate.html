@@ -1,0 +1,292 @@
+<!-- ON THE DESKTOP -->
+<!-- <script src="modal/modal.js"></script>
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6612472/695864/css/fonts.css" />
+<script type="text/javascript" src="http://static.virginamerica.com/Web3/dgtlmktg/js/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="modal/modal.css" /> -->
+
+<!-- get the modal -->
+<script src="/cms/dam/jquery.min.js"></script>
+
+<script type="text/javascript">
+  $(function () {
+    
+    //grab the entire query string
+    var query = document.location.search.replace('?', '');
+    
+    //extract each field/value pair
+    query = query.split('&');
+    
+    //run through each pair
+    for (var i = 0; i < query.length; i++) {
+    
+      //split up the field/value pair into an array
+      var field = query[i].split("=");
+      
+      //target the field and assign its value
+      $("input[id='" + field[0] + "'], select[id='" + field[0] + "']").val(field[1]);
+    
+    }
+  });
+</script>
+<script src="/cms/dam/modaljs.js"></script>
+<link rel="stylesheet" type="text/css" href="/cms/dam/modalcss.css" />
+
+<script type="text/javascript">
+
+//all the cookie functionality
+function getCookie (name) {
+    var dcookie = document.cookie; 
+    var cname = name + "=";
+    var clen = dcookie.length;
+    var cbegin = 0;
+            while (cbegin < clen) {
+            var vbegin = cbegin + cname.length;
+                    if (dcookie.substring(cbegin, vbegin) == cname) { 
+                    var vend = dcookie.indexOf (";", vbegin);
+                            if (vend == -1) vend = clen;
+                    return unescape(dcookie.substring(vbegin, vend));
+                    }
+            cbegin = dcookie.indexOf(" ", cbegin) + 1;
+                    if (cbegin == 0) break;
+            }
+    return null;
+}
+function setRegCookie(c_name,value,exdays)
+{
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+}
+function checkForRegCookie() {
+    regCheck = getCookie('test-cookie');
+    if (regCheck !== null && regCheck !== "") {
+        window.location = "/cms/promos/10-7-15-elevate-campaign-thank-you";
+    } else {
+        return false;
+    }
+}
+
+//form validation and then cookie creation and submission all in the one function, triggered by the submit button
+function validateForm() {
+
+    //Validate First Name
+    var fname = document.forms["Q4ELEVATE_FORM"]["Q4ELEVATE_FIRST_NAME"].value;
+    if (fname == null || fname == "") {
+        alertModal('Oops. We need a little more info.', 'Please enter your first name.');
+          return false;
+    }
+
+    //Validate Last Name
+    var lname = document.forms["Q4ELEVATE_FORM"]["Q4ELEVATE_LAST_NAME"].value;
+    if (lname == null || lname == "") {
+        alertModal('Oops. We need a little more info.', 'Please enter your last name.');
+          return false;
+    }
+
+    //Validate Email Address
+    var x=document.forms["Q4ELEVATE_FORM"]["EMAIL_ADDRESS_"].value;
+    var posat=x.indexOf("@");
+    var dotpos=x.lastIndexOf(".");
+        if (posat<1 || dotpos<posat+2 || dotpos+2>=x.length) {
+          alertModal('Oops. We need a little more info.', 'Please enter a valid email address.');
+          return false;
+    }
+
+    //Elevate Number  ALERT MODAL MESSAGE WAS
+    //Oops. We need a little more info., Please enter a valid 11-digit Elevate number.
+    var CUSTOMER_ID_ = document.forms["Q4ELEVATE_FORM"]["Q4ELEVATE_ELEVATE_NUMBER"].value;
+    var initialElevateNumberCheck = /^[0-9]{11}$/;
+    var elevateNumberDigits = new Array();
+
+    if (CUSTOMER_ID_.match(initialElevateNumberCheck)) {
+        var elevateNumberDigits = CUSTOMER_ID_.split('');
+        var d1 = elevateNumberDigits[0]*6;
+          var d2 = elevateNumberDigits[1]*5;
+          var d3 = elevateNumberDigits[2]*4;
+          var d4 = elevateNumberDigits[3]*3;
+          var d5 = elevateNumberDigits[4]*8;
+          var d6 = elevateNumberDigits[5]*7;
+          var d7 = elevateNumberDigits[6]*6;
+          var d8 = elevateNumberDigits[7]*5;
+          var d9 = elevateNumberDigits[8]*4;
+          var d10 = elevateNumberDigits[9]*3;
+      
+          var dTotal = d1+d2+d3+d4+d5+d6+d7+d8+d9+d10;
+          var dTotalDivided = Math.floor(dTotal/11);
+          var secondNumber = dTotalDivided * 11;
+          var remainder = dTotal-secondNumber;
+      
+          if (remainder >=2)
+          {
+            if(elevateNumberDigits[10] == 11-remainder)
+            {
+                //alert("works!");
+            }
+            else {
+                alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number, or leave this field blank if you aren't a member.");
+                return false;
+            }
+          }
+        else
+        {
+            if(elevateNumberDigits[10] == 0)
+            {
+            }
+            else {
+                alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number, or leave this field blank if you aren't a member.");
+                return false;
+            }
+        }      
+    }
+
+    else if (CUSTOMER_ID_ !== '') {
+        alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number, or leave this field blank if you aren't a member.");
+        return false;
+    }
+
+    //Validate Rules
+    if (document.forms['Q4ELEVATE_FORM']['Q4ELEVATE_TERMS'].checked == false ){
+        alertModal('Oops. We need a little more info.',  'Please accept the terms and conditions of the offer.' );
+        return false;
+    }
+    
+    //translate the optin
+    if ($('input[name=Q4ELEVATE_GENERAL_OPTIN]:checked').length != 0) {
+        $('form[name="Q4ELEVATE_FORM"]').append('<input type="hidden" name="EMAIL_PERMISSION_STATUS_" value="Y">');
+        $('form[name="Q4ELEVATE_FORM"]').append('<input type="hidden" name="FARESALE_OPTIN" value="Y">');
+        $('form[name="Q4ELEVATE_FORM"]').append('<input type="hidden" name="PARTNER_OPTIN" value="Y">');
+        $('form[name="Q4ELEVATE_FORM"]').append('<input type="hidden" name="DEPARTUREDEALS_OPTIN" value="Y">');
+    }
+
+    setRegCookie('test-cookie','registered',365);
+
+}
+
+checkForRegCookie();
+
+
+</script>
+<style type="text/css">
+    button {
+        color: #FFFFFF;
+        background-color: #7b4397;
+        font-family:"Gotham SSm 4r","Gotham SSm A","Gotham SSm B",Arial,sans-serif;
+        font-weight: 700;
+        font-size: .8em;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-appearance: button;
+        box-sizing: border-box;
+        height:36px;
+        width:100%;
+        vertical-align: top;
+        outline: none;
+        border:0px;
+    }
+    button:hover {
+        background-color: #9d27d9;
+        -webkit-transition: background-color 500ms ease-in-out;
+        -moz-transition: background-color 500ms ease-in-out;
+        -o-transition: background-color 500ms ease-in-out;
+        transition: background-color 500ms ease-in-out;
+    }
+    input[type="text"] {
+        font-family: Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        font-size: 1.4rem;
+        height: 36px;
+        padding: 0 12px;
+        color:#666666;
+        width:100%;
+        border: 1px solid #ccc;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+    }
+    input[type="checkbox"]{
+        margin-right: 10px;
+    }
+    .formRow {
+        width:100%;
+    }
+    .left {
+        width:47%;
+        float:left;
+    }
+    .right {
+        width:47%;
+        float:right;
+    }
+    /*@media only screen and (max-width: 870px) {}*/
+    
+    @media only screen and (max-width: 640px) {
+        .left {
+            width:100%;
+            float:none;
+        }
+        .right {
+            width:100%;
+            float:none;
+        }
+        input[type="text"] {
+            width:100%;
+        }
+    }
+    /*@media only screen and (max-width: 450px) {}*/
+
+</style>
+<form name="Q4ELEVATE_FORM" action = "https://elevate.virginamerica.com/pub/rf" method = "post" id = "qform">
+<input type="hidden" name="_ri_" value="X0Gzc2X%3DYQpglLjHJlYQGuOeycUN16JmYfvzeeHTWhLRCI4c3sSHBhzefVwjpnpgHlpgneHmgJoXX0Gzc2X%3DYQpglLjHJlYQGhirzbWO59NtzbmmdloUrFwzgbCI4c3sSHBhzef">
+
+<h2 class="subheading" style="margin-top:0px;">Register below.</h2>
+<div class"formRow">
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            First Name*
+            </label>
+            <input id="firstNameField" type="text" name="Q4ELEVATE_FIRST_NAME" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="right">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Last Name*
+            </label>
+            <input id="lastNameField" type="text" name="Q4ELEVATE_LAST_NAME" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div class="formRow" style="clear:both;">
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Email Address*
+            </label>
+            <input id="emailField" type="text" name="EMAIL_ADDRESS_" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+    <div class="right">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Elevate Number*
+            </label>
+            <input id="elevateNumberField" type="text" maxlength="11" name="Q4ELEVATE_ELEVATE_NUMBER" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+
+<p class="subhead" style="clear:both;">Not an Elevate member? <a href="https://www.virginamerica.com/elevate-frequent-flyer/sign-up">Sign up</a>.</p>
+<p class="text-footer" style="clear:both;font-size:11px;padding-top:0px;padding-bottom:20px;margin-bottom:5px;">
+   <input type="checkbox" name="Q4ELEVATE_GENERAL_OPTIN" checked="checked" value="y">Sign me up to receive special Virgin America promotional offers and news <a href="/cms/legal/privacy-policy" style="text-decoration:none !important;">Virgin America Privacy Policy</a>
+</p>
+
+<button id="submitButton" style="margin-bottom:20px;" onClick="return validateForm();">Submit</button>
+</form>
+

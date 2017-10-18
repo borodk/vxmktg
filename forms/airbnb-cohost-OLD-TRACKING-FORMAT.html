@@ -1,0 +1,126 @@
+			<style type="text/css">
+					button {
+							color: #FFFFFF;
+							background-color: #7b4397;
+							font-family:"Gotham SSm 4r","Gotham SSm A","Gotham SSm B",Arial,sans-serif;
+							font-weight: 700;
+							font-size: .8em;
+							font-style: normal;
+							-webkit-font-smoothing: antialiased;
+							text-align: center;
+							text-decoration: none;
+							text-transform: uppercase;
+							-webkit-appearance: button;
+							box-sizing: border-box;
+							height:36px;
+							width:100%;
+							vertical-align: top;
+							outline: none;
+							border:0px;
+					}
+					button:hover {
+							background-color: #9d27d9;
+							-webkit-transition: background-color 500ms ease-in-out;
+							-moz-transition: background-color 500ms ease-in-out;
+							-o-transition: background-color 500ms ease-in-out;
+							transition: background-color 500ms ease-in-out;
+					}
+					input[type="text"] {
+							font-family: Arial, sans-serif;
+							font-weight: 400;
+							font-style: normal;
+							font-size: 14px;
+							font-size: 1.4rem;
+							height: 36px;
+							padding: 0 12px;
+							color:#666666;
+							width:100%;
+							border: 1px solid #ccc;
+							box-shadow: inset 2px 2px 0 0 #ebebeb;
+					}
+					input[type="checkbox"]{
+							margin-right: 10px;
+					}
+					.formRow {
+							width:100%;
+					}
+					.left {
+							width:47%;
+							float:left;
+					}
+					.formRight {
+							width:47%;
+							float:right;
+					}
+					form .text-footer {
+						float: left;
+						padding-top: 0px;
+						text-align: left;
+					}
+
+					@media only screen and (max-width: 640px) {
+							.left {
+									width:100%;
+									float:none;
+							}
+							.formRight {
+									width:100%;
+									float:none;
+							}
+							input[type="text"] {
+									width:100%;
+							}
+					}
+			</style>
+
+				<!-- HOST FORM -->
+				<script type="text/javascript">
+				function validateCohostForm() {
+				    var CUSTOMER_ID_ = document.forms["AIRBNB_COHOST_FORM"]["p.c"].value;
+					var initialElevateNumberCheck = /^[0-9]{11}$/;
+					var elevateNumberDigits = new Array();
+
+					if (CUSTOMER_ID_.match(initialElevateNumberCheck)) {
+						var elevateNumberDigits = CUSTOMER_ID_.split('');
+						var d1 = elevateNumberDigits[0];
+						var d2 = elevateNumberDigits[1];
+
+						if((d1 == 0) && (d2 == 0)) {
+							alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number.");
+							return false;
+						} else {
+							var elevateNumber = $('#cohostElevateNumberField').val();
+							return true;
+						}
+					}
+					else {
+						alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number.");
+						return false;
+					}
+				}
+				</script>
+
+				<form name="AIRBNB_COHOST_FORM" action="https://www.airbnb.com/co-hosting" onsubmit="location.href= this.action + elevateNumber" class="ng-pristine ng-valid vaForms">
+
+				   <input type="hidden" name="af" value="47720999">
+
+				<h2 class="subheading">Sharing Is Earning</h2>
+				<p class="subhead" style="clear:both;">How It Works: Enter your Elevate number below. You'll then be able to find a co-host near you who can answer your questions and help you get started. Receive your 20,000 Elevate points after you complete your 5th night hosting.</p>
+				<div class="formRow">
+				        <p>
+				            <label>
+				            	<b>Elevate Number&nbsp</b>
+										</label>
+				            <input id="cohostElevateNumberField" maxlength="11" name="c" class="formField"  onkeydown="if (event.keyCode == 13) {document.getElementById('cohostSubmitButton').click();event.returnValue=false;event.cancel=true;}">
+				        </p>
+							</div>
+							<span class="text-footer">You agree to Airbnb and Virgin America sharing information about your Elevate membership and Airbnb activity with one another, for the purposes of administering this offer.</span>
+				<button id="cohostSubmitButton" onclick="return validateCohostForm();">Get Started</button>
+				<p>
+						<label>
+								<b>Not yet a member?</b> <a href="https://www.virginamerica.com/elevate-frequent-flyer/sign-up" target="_blank">JOIN NOW</a>
+						</label>
+				</p>
+				</form>
+
+				<!-- /HOST FORM -->

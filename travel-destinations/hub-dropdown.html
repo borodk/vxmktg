@@ -1,0 +1,55 @@
+<link rel="stylesheet" type="text/css" href="/cms/dam/utils/css/vaForms.css" />
+<style>
+.nav-drop-down-selectbox {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%20Tiny%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11-tiny.dtd%22%3E%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22tiny%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2215px%22%20height%3D%2210px%22%20viewBox%3D%220%200%2015%2010%22%20xml%3Aspace%3D%22preserve%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3Ecircle%2C%20ellipse%2C%20line%2C%20path%2C%20polygon%2C%20polyline%2C%20rect%2C%20text%20%7B%20fill%3A%20%237b4397%20!important%3B%20%7D%3C%2Fstyle%3E%3Cpath%20fill%3D%22%237B4397%22%20d%3D%22M15%2C2.5l-5%2C5l0%2C0L7.5%2C10l0%2C0l0%2C0L5%2C7.5l0%2C0l-5-5L2.5%2C0l5%2C5l5-5L15%2C2.5z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15%;
+}
+</style>
+
+<div class="nav-drop-down">
+    <div class="nav-drop-down-container-purple">
+        <p>
+        <select id="CitiesList" rel="citiesBox" class="select hasCustomSelect" title="drop-down menu" style="-webkit-appearance: menulist-button; position: absolute; opacity: 0;" onchange="changeDropdownDisplay();">
+            <option disabled selected>Select a city to get started</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/aus-austin-tx">Flights to Austin (AUS)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/bos-boston-ma">Flights to Boston (BOS)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/cun-cancun-mexico">Flights to Cancun (CUN)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/ord-chicago-il">Flights to Chicago (ORD)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/dal-dallas-tx">Flights to Dallas (DAL) | Love Field</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/den-denver-co">Flights to Denver (DEN)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/fll-fort-lauderdale-fl">Flights to Fort Lauderdale/Miami (FLL)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/hnl-honolulu-hi">Flights to Honolulu (HNL)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/las-las-vegas-nv">Flights to Las Vegas (LAS)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/lax-los-angeles-ca">Flights to Los Angeles (LAX)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/ogg-maui-hi">Flights to Maui (OGG)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/newark">Flights to Newark (EWR)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/new-york">Flights to New York | JFK, LGA</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/mco-orlando-fl">Flights to Orlando/Disney World (MCO)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/pdx-portland-or">Flights to Portland (PDX)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/psp-palm-springs-ca">Flights to Palm Springs (PSP)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/pvr-puerto-vallarta-mexico">Flights to Puerto Vallarta (PVR)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/san-san-diego-ca">Flights to San Diego (SAN)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/sea-seattle-wa">Flights to Seattle (SEA)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/sfo-san-francisco-ca">Flights to San Francisco (SFO)</option>
+           <option value="https://www.virginamerica.com/cms/travel-destinations/sjd-los-cabos-mexico">Flights to Cabo San Lucas/Los Cabos (SJD)</option>
+            <option value="https://www.virginamerica.com/cms/travel-destinations/washington-dc">Flights to Washington D.C. | IAD and DCA</option>
+        </select>
+        <span class="custom-select nav-drop-down-selectbox customSelectDisabledOption" style="display: inline-block;line-height:normal;">
+            <span class="custom-selectInner" id="citiesBox" style="width: 100%; display: inline-block;">Select a city to get started</span>
+        </span>
+        </p>
+    </div>
+</div>
+
+<script type="text/javascript">
+function changeDropdownDisplay() {
+        var dropdownSelected = $('#CitiesList option:selected').text();
+        $('#citiesBox').text(dropdownSelected);
+
+        var url = $('#CitiesList option:selected').val();
+        if(this.selectedIndex !==0) {
+            window.location.href = url;
+        }
+    }
+</script>

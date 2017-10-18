@@ -1,0 +1,286 @@
+<!-- ON THE DESKTOP -->
+<!-- <script src="modal/modal.js"></script>
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6612472/695864/css/fonts.css" />
+<script type="text/javascript" src="http://static.virginamerica.com/Web3/dgtlmktg/js/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="modal/modal.css" /> -->
+
+<!-- get the modal -->
+<script src="/cms/dam/modaljs.js"></script>
+<link rel="stylesheet" type="text/css" href="/cms/dam/modalcss.css" />
+
+<script type="text/javascript">
+//all the cookie functionality
+function getCookie (name) {
+    var dcookie = document.cookie;
+    var cname = name + "=";
+    var clen = dcookie.length;
+    var cbegin = 0;
+            while (cbegin < clen) {
+            var vbegin = cbegin + cname.length;
+                    if (dcookie.substring(cbegin, vbegin) == cname) {
+                    var vend = dcookie.indexOf (";", vbegin);
+                            if (vend == -1) vend = clen;
+                    return unescape(dcookie.substring(vbegin, vend));
+                    }
+            cbegin = dcookie.indexOf(" ", cbegin) + 1;
+                    if (cbegin == 0) break;
+            }
+    return null;
+}
+function setRegCookie(c_name,value,exdays)
+{
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+}
+function checkForRegCookie() {
+    regCheck = getCookie('LINKEDIN-cookie');
+    if (regCheck !== null && regCheck !== "") {
+        window.location = "/cms/promos/linkedin-lynda-com-offer-thank-you";
+    } else {
+        return false;
+    }
+}
+
+//form validation and then cookie creation and submission all in the one function, triggered by the submit button
+function validateForm() {
+    //Validate First Name
+    var fname = document.forms["LINKEDIN"]["LINKEDIN_FIRST_NAME"].value;
+    if (fname == null || fname == "") {
+        alertModal('Oops. We need a little more info.', 'Please enter your first name.');
+          return false;
+    }
+
+    //Validate Last Name
+    var lname = document.forms["LINKEDIN"]["LINKEDIN_LAST_NAME"].value;
+    if (lname == null || lname == "") {
+        alertModal('Oops. We need a little more info.', 'Please enter your last name.');
+          return false;
+    }
+
+    //Validate Email Address
+    var x=document.forms["LINKEDIN"]["EMAIL_ADDRESS_"].value;
+    var atpos=x.indexOf("@");
+    var dotpos=x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+          alertModal('Oops. We need a little more info.', 'Please enter a valid email address.');
+          return false;
+    }
+
+    //Elevate Number  ALERT MODAL MESSAGE WAS
+    //Oops. We need a little more info., Please enter a valid 11-digit Elevate number.
+    var CUSTOMER_ID_ = document.forms["LINKEDIN"]["LINKEDIN_ELEVATE_NUMBER"].value;
+    var initialElevateNumberCheck = /^[0-9]{11}$/;
+    var elevateNumberDigits = new Array();
+
+    if (CUSTOMER_ID_.match(initialElevateNumberCheck)) {
+                        var elevateNumberDigits = CUSTOMER_ID_.split('');
+                        var d1 = elevateNumberDigits[0];
+                        var d2 = elevateNumberDigits[1];
+
+                        if((d1 == 0) && (d2 == 0)) {
+                            alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number.");
+                            return false;
+                        } 
+                    }
+                    else {
+                        alertModal("Oops. We need a little more info.", "Please enter a valid 11-digit Elevate number.");
+                        return false;
+                    }
+
+    //translate the optin
+    if ($('input[name=LINKEDIN_GENERAL_OPTIN]:checked').length != 0) {
+        $('form[name="LINKEDIN"]').append('<input type="hidden" name="EMAIL_PERMISSION_STATUS_" value="I">');
+        $('form[name="LINKEDIN"]').append('<input type="hidden" name="FARESALE_OPTIN" value="Y">');
+        $('form[name="LINKEDIN"]').append('<input type="hidden" name="PARTNER_OPTIN" value="Y">');
+        $('form[name="LINKEDIN"]').append('<input type="hidden" name="DEPARTUREDEALS_OPTIN" value="Y">');
+    }
+
+    setRegCookie('LINKEDIN-cookie','registered',365);
+}
+
+function changeDropdownDisplay() {
+    var dropdownSelected = $('#dropdownSelect option:selected').text();
+    $('#dropdownDisplay').text(dropdownSelected);
+}
+
+checkForRegCookie();
+
+</script>
+<style type="text/css">
+    button {
+        color: #FFFFFF;
+        background-color: #7b4397;
+        font-family:"Gotham SSm 4r","Gotham SSm A","Gotham SSm B",Arial,sans-serif;
+        font-weight: 700;
+        font-size: .8em;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-appearance: button;
+        box-sizing: border-box;
+        height:36px;
+        width:100%;
+        vertical-align: top;
+        outline: none;
+        border:0px;
+    }
+    button:hover {
+        background-color: #9d27d9;
+        -webkit-transition: background-color 500ms ease-in-out;
+        -moz-transition: background-color 500ms ease-in-out;
+        -o-transition: background-color 500ms ease-in-out;
+        transition: background-color 500ms ease-in-out;
+    }
+    input[type="text"] {
+        font-family: Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        font-size: 1.4rem;
+        height: 36px;
+        padding: 0 12px;
+        color:#666666;
+        width:100%;
+        border: 1px solid #ccc;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+    }
+    input[type="checkbox"]{
+        margin-right: 10px;
+    }
+    select {
+        width:100%;
+        height:36px;
+        /*background-color: #ebebeb;*/
+        font-family:Arial, sans-serif;
+        font-size:1.4rem;
+        border: 1px solid #ccc;
+         appearance:none;
+         -webkit-appearance: none;
+         -moz-appearance: none;
+        border-radius:0 !important;
+        -webkit-border-radius:0 !important;
+        -moz-border-radius:0 !important;
+        padding-left: 12px;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+        /*vertical-align: middle !important;*/
+        /*padding:.5em;/.6em;*/
+    }
+    .formRow {
+        width:100%;
+    }
+    .left {
+        width:47%;
+        float:left;
+    }
+    .formRight {
+        width:47%;
+        float:right;
+    }
+    #dropdownSelect {
+        width:380px;
+    }
+    select {
+        width:100%;
+        height:36px;
+        /*background-color: #ebebeb;*/
+        font-family:Arial, sans-serif;
+        font-size:1.4rem;
+        border: 1px solid #ccc;
+         appearance:none;
+         -webkit-appearance: none;
+         -moz-appearance: none;
+        border-radius:0 !important;
+        -webkit-border-radius:0 !important;
+        -moz-border-radius:0 !important;
+        padding-left: 12px;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+        /*vertical-align: middle !important;*/
+        /*padding:.5em;/.6em;*/
+    }
+
+    @media only screen and (max-width: 870px) {
+        #dropdownSelect {
+            width:320px;
+        }
+    }
+
+    @media only screen and (max-width: 640px) {
+        .left {
+            width:100%;
+            float:none;
+        }
+        .formRight {
+            width:100%;
+            float:none;
+        }
+        input[type="text"] {
+            width:100%;
+        }
+        #dropdownSelect {
+            width:450px;
+        }
+    }
+    @media only screen and (max-width: 450px) {
+        #dropdownSelect {
+            width:350px;
+        }
+    }
+    /*@media only screen and (max-width: 360px) {
+        #dropdownSelect {
+            width:300px;
+        }
+    }*/
+</style>
+<form name="LINKEDIN" action="https://elevate.virginamerica.com/pub/rf" method="post" style="clear:both">
+<input type="hidden" name="_ri_" value="X0Gzc2X%3DYQpglLjHJlYQGNE3i8aCKAOPJDYEcdGzfsGXe61zaHHaeeOdfVwjpnpgHlpgneHmgJoXX0Gzc2X%3DYQpglLjHJlYQGtm7oTnOXGbzgobjvLzbhw2zaje61zaHHaeeOdf">
+
+<h2 class="subheading" style="margin-top:0px;">PROVIDE INFORMATION BY JUNE 2 FOR YOUR PROMO CODE.</h2>
+<div class"formRow" style="clear:both;">
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            First Name
+            </label>
+            <input id="firstNameField" type="text" name="LINKEDIN_FIRST_NAME" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+    <div class="formRight">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Last Name
+            </label>
+            <input id="lastNameField" type="text" name="LINKEDIN_LAST_NAME" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div class="formRow" style="clear:both;">
+    <div class="left">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Elevate Number
+            </label>
+            <input id="elevateNumberField" type="text" maxlength="11" name="LINKEDIN_ELEVATE_NUMBER" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+    <div class="formRight">
+        <p>
+            <label class="label" style="color:#7b4397">
+            Email Address
+            </label>
+            <input id="emailField" type="text" name="EMAIL_ADDRESS_" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+
+<p class="subhead" style="clear:both;">Not an Elevate Member? Sign up <a href="https://www.virginamerica.com/elevate-frequent-flyer/sign-up/?cid=pro_vail_elevate-signup" target="_blank" title="To Elevate sign-up">here</a>.</p>
+<p class="subhead" style="clear:both;">Forgot your Elevate Number? We've got you covered. <a href="https://www.virginamerica.com/elevate-frequent-flyer/?cid=pro_vail_forgot-elevate" target="_blank" title="To Forgot your Elevate Number">Click here</a>.</p>
+<p class="text-footer" style="clear:both;font-size:11px;padding-top:0px;padding-bottom:20px;margin-bottom:5px;">
+    <input type="checkbox" name="LINKEDIN_GENERAL_OPTIN" checked="checked" value="y">Sign me up to receive special Virgin America fares, promotional offers, and news (<a href="https://www.virginamerica.com/cms/legal/privacy-policy.html?cid=pro_vail_privacy-policy" target="_blank" title="To privacy policy" style="text-decoration:none !important;">Virgin America's Privacy Policy</a>)	
+</p>
+
+<button id="submitButton" style="margin-bottom:20px;" onClick="return validateForm();">Submit</button>
+</form>

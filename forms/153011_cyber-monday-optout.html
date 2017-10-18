@@ -1,0 +1,211 @@
+<!-- ON THE DESKTOP -->
+<!-- <script src="modal/modal.js"></script>
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6612472/695864/css/fonts.css" />
+<script type="text/javascript" src="http://static.virginamerica.com/Web3/dgtlmktg/js/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="modal/modal.css" /> -->
+
+<!-- get the modal -->
+<script src="/cms/dam/modaljs.js"></script>
+<link rel="stylesheet" type="text/css" href="/cms/dam/modalcss.css" />
+
+<script type="text/javascript">
+
+//all the cookie functionality
+function getCookie (name) {
+    var dcookie = document.cookie;
+    var cname = name + "=";
+    var clen = dcookie.length;
+    var cbegin = 0;
+            while (cbegin < clen) {
+            var vbegin = cbegin + cname.length;
+                    if (dcookie.substring(cbegin, vbegin) == cname) {
+                    var vend = dcookie.indexOf (";", vbegin);
+                            if (vend == -1) vend = clen;
+                    return unescape(dcookie.substring(vbegin, vend));
+                    }
+            cbegin = dcookie.indexOf(" ", cbegin) + 1;
+                    if (cbegin == 0) break;
+            }
+    return null;
+}
+function setRegCookie(c_name,value,exdays)
+{
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+}
+function checkForRegCookie() {
+    regCheck = getCookie('test-cookie');
+    if (regCheck !== null && regCheck !== "") {
+        window.location = "/cms/promos/cyber-monday-opt-out-confirmation";
+    } else {
+        return false;
+    }
+}
+
+//form validation and then cookie creation and submission all in the one function, triggered by the submit button
+function validateForm() {
+
+    //Validate First Name
+    var fname = document.forms["CYBER_MONDAY_FORM"]["CYBER_MONDAY_FIRST_NAME"].value;
+    if (fname == null || fname == "") {
+        alertModal('Oops. We need a little more info.', 'Please enter your first name.');
+        return false;
+    }
+
+    //Validate Last Name
+    var lname = document.forms["CYBER_MONDAY_FORM"]["CYBER_MONDAY_LAST_NAME"].value;
+    if (lname == null || lname == "") {
+        alertModal('Oops. We need a little more info.', 'Please enter your last name.');
+        return false;
+    }
+
+    //Validate Email Address
+    var x=document.forms["CYBER_MONDAY_FORM"]["EMAIL_ADDRESS_"].value;
+    var atpos=x.indexOf("@");
+    var dotpos=x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alertModal('Oops. We need a little more info.', 'Please enter a valid email address.');
+        return false;
+    }
+
+    //Validate PNR NUmber
+    var lname = document.forms["CYBER_MONDAY_FORM"]["CYBER_MONDAY_PNR_ONE"].value;
+    if (lname == null || lname == "" || lname.length > 6 || (!/^[a-z0-9]+$/i.test(lname))) {
+        alertModal('Oops. We need a little more info.', 'Please enter PNR number.');
+        return false;
+    }
+
+    setRegCookie('test-cookie','registered',365);
+
+}
+
+// checkForRegCookie();
+
+
+</script>
+<style type="text/css">
+    button {
+        color: #FFFFFF;
+        background-color: #7b4397;
+        font-family:"Gotham SSm 4r","Gotham SSm A","Gotham SSm B",Arial,sans-serif;
+        font-weight: 700;
+        font-size: .8em;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-appearance: button;
+        box-sizing: border-box;
+        height:36px;
+        width:100%;
+        vertical-align: top;
+        outline: none;
+        border:0px;
+    }
+    button:hover {
+        background-color: #9d27d9;
+        -webkit-transition: background-color 500ms ease-in-out;
+        -moz-transition: background-color 500ms ease-in-out;
+        -o-transition: background-color 500ms ease-in-out;
+        transition: background-color 500ms ease-in-out;
+    }
+    input[type="text"] {
+        font-family: Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        font-size: 1.4rem;
+        height: 36px;
+        padding: 0 12px;
+        color:#666666;
+        width:100%;
+        border: 1px solid #ccc;
+        box-shadow: inset 2px 2px 0 0 #ebebeb;
+    }
+    .label {
+      color:#7b4397;
+    }
+    .formRow {
+        width:100%;
+    }
+    .left {
+        width:47%;
+        float:left;
+    }
+    .right {
+        width:47%;
+        float:right;
+    }
+
+    @media only screen and (max-width: 870px) {
+    }
+
+    @media only screen and (max-width: 640px) {
+        .left {
+            width:100%;
+            float:none;
+        }
+        .right {
+            width:100%;
+            float:none;
+        }
+        input[type="text"] {
+            width:100%;
+        }
+    }
+    /*@media only screen and (max-width: 450px) {
+    }
+    @media only screen and (max-width: 360px) {
+    }*/
+</style>
+<form name="CYBER_MONDAY_FORM" action = "https://elevate.virginamerica.com/pub/rf" method = "post">
+<input type="hidden" name="_ri_" value="X0Gzc2X%3DYQpglLjHJlYQGmzeMOzazezgCzezan4YD7SnDzc3FDpqUFiqf577u3VwjpnpgHlpgneHmgJoXX0Gzc2X%3DYQpglLjHJlYQGgLXI1oarlj3T0zfrqrtDTbzgpqUFiqf577u3">
+
+<!--<h2 class="subheading" style="margin-top:0px;">ENTER CONFIRMATION NUMBER TO OPT OUT.</h2>-->
+<div class"formRow">
+    <div class="left">
+        <p>
+            <label class="label">
+            First Name
+            </label>
+            <input id="firstNameField" type="text" name="CYBER_MONDAY_FIRST_NAME" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="right">
+        <p>
+            <label class="label">
+            Last Name
+            </label>
+            <input id="lastNameField" type="text" name="CYBER_MONDAY_LAST_NAME" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="left">
+        <p>
+            <label class="label">
+            Confirmation Number
+            </label>
+            <input id="pnroneField" type="text" name="CYBER_MONDAY_PNR_ONE" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+        </p>
+    </div>
+</div>
+<div>
+    <div class="right">
+      <p>
+          <label class="label">
+          Email Address
+          </label>
+          <input id="emailField" type="text" name="EMAIL_ADDRESS_" class="formField" onkeydown="if (event.keyCode == 13) {document.getElementById('submitButton').click();event.returnValue=false;event.cancel=true;}">
+      </p>
+    </div>
+</div>
+
+
+<button id="submitButton" style="margin-bottom:20px;" onClick="return validateForm();">Submit</button>
+</form>
